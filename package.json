@@ -34,7 +34,5 @@
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
   },
-  "vercel-build":"./vercel-submodule-workaround.sh && npm run build",
-  "date-fns"
-
+  "vercel-build":"./vercel-submodule-workaround.sh && npm run build"
 }
