@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md formulario" style="max-width: 400px">
-    <div class="absolute-center">
+    <div class="">
       <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
         <h5 class="titulo">Criar Conta</h5>
         <p>Aproveite sua vida profissional ao máximo</p>
@@ -38,6 +38,7 @@
 </template>
 <script>
 export default {
+  name: "Criarconta",
   data() {
     return {
       empresa: true,
