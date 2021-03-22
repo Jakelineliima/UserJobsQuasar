@@ -1,11 +1,13 @@
 <<<<<<< HEAD:src/pages/criarconta.vue
 <template>
-  <div class="q-pa-md formulario" style="max-width: 400px">
+  <div class="q-pa-md formulario">
     <div class="">
-      <q-form @submit="onSubmit"  class="q-gutter-md">
+      <q-form @submit="onSubmit"  class="q-gutter-md justify-center">
         <h5 class="titulo">Criar Conta</h5>
         <p>Aproveite sua vida profissional ao máximo</p>
+        <div class="justify-center">
         <q-input
+        class="input"
           filled
           v-model="email"
           label="Digite seu email*"
@@ -14,6 +16,7 @@
         />
 
         <q-input
+        class="input"
           filled
           type="password"
           v-model="senha"
@@ -21,7 +24,7 @@
           lazy-rules
           :rules="[(val) => (val !== null && val !== '') || 'Digite uma senha']"
         />
-
+        </div>
         <div class="q-gutter-sm">
           <q-checkbox v-model="empresa" label="Empresa" />
           <q-checkbox v-model="candidato" label="Candidato" />
@@ -82,5 +85,12 @@ export default {
 
 .formulario {
   text-align: center;
+  display: contents;
+}
+.input{
+  width: 23%;
+}
+.form{
+  display block-ruby;
 }
 </style>
