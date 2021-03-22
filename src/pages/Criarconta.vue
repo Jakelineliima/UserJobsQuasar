@@ -1,4 +1,3 @@
-<<<<<<< HEAD:src/pages/criarconta.vue
 <template>
   <div class="q-pa-md formulario">
     <div class="">
