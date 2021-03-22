@@ -1,7 +1,7 @@
 <template>
   <div class="q-pa-md formulario" style="max-width: 400px">
     <div class="">
-      <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
+      <q-form @submit="onSubmit"  class="q-gutter-md">
         <h5 class="titulo">Criar Conta</h5>
         <p>Aproveite sua vida profissional ao máximo</p>
         <q-input
@@ -43,10 +43,32 @@ export default {
     return {
       empresa: true,
       candidato: false,
+      email: null,
+      senha: null
     };
   },
+  methods: {
+    onSubmit () {
+      if (this.accept !== true) {
+        this.$q.notify({
+          color: 'red-5',
+          textColor: 'white',
+          icon: 'warning',
+          message: 'You need to accept the license and terms first'
+        })
+      }
+      else {
+        this.$q.notify({
+          color: 'green-4',
+          textColor: 'white',
+          icon: 'cloud_done',
+          message: 'Submitted'
+        })
+      }
+    },
 };
 </script>
+
 <style lang="stylus">
 .titulo {
   color: rgb(25, 118, 210);
