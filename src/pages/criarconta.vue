@@ -66,9 +66,9 @@ export default {
         })
       }
     },
-};
+}
+}
 </script>
-
 <style lang="stylus">
 .titulo {
   color: rgb(25, 118, 210);
