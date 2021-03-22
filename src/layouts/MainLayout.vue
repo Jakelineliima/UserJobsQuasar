@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh LpR fFf">
-    <q-header class="menu text-dark" height-hint="98">
+    <q-header class="text-dark bg-white fixed" height-hint="98">
       <q-toolbar style="height: 86px">
         <q-toolbar-title class="logoimg">
           <a href="">
@@ -9,7 +9,7 @@
         </q-toolbar-title>
         <q-tabs class="links">
           <q-btn flat rounded color="primary" label="Ver vagas" />
-          <p>|</p>
+          <hr class="q-py-sm">
           <q-btn flat rounded color="primary" label="Cadastre sua vaga" />
           <q-btn unelevated rounded color="primary" label="Fazer login" />
         </q-tabs>
@@ -20,21 +20,21 @@
       <router-view />
     </q-page-container>
 
-    <q-footer class="text-white rodape">
-      <div class="teste">
-        <div class="text-h6 sobre">
-          <q-btn flat no-caps label="Sobre a UseJobs" />
+    <q-footer class="absolute">
+      <div class="bg-primary row justify-between q-py-md">
+
+        <div class="q-px-xl">
+          <p class="text-weight-bold">Sobre a Use Jobs</p>
         </div>
 
-        <div class="text-right">
-          <p class="text-h6">Contato</p>
-          <p>userjobs@gmail.com</p>
+        <div class="q-px-xl">
+          <p class="text-weight-bold">Contato</p>
+          <a href="#" class="text-white">usejobs@gmail.com</a>
         </div>
+
       </div>
-      <div>
-        <p class="text-subtitle2 text-dark bg-white direitos">
-          2021 / Todos os direitos reservados
-        </p>
+      <div class="bg-white" style="padding: 15px">
+        <p class="text-dark text-center align-center text-weight-bold text-blue-grey-7 " style="margin: 0">2021 / Todos os direitos reservados.</p>
       </div>
     </q-footer>
   </q-layout>
@@ -50,11 +50,6 @@ export default {
 <style lang="stylus">
 .logo {
   width: 120px;
-}
-
-.menu {
-  background-color: #fff;
-  position: fixed;
 }
 
 .paginas {
@@ -77,21 +72,12 @@ export default {
   background-color: #000;
 }
 
-.rodape {
-  position: relative;
-}
-
 .direitos {
   text-align: center;
 }
 
 .container {
   width: 1126px !important;
-}
-
-.teste {
-  display: flex;
-  justify-content: space-between;
 }
 
 </style>
