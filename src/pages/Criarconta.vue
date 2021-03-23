@@ -4,14 +4,14 @@
       <q-form @submit="onSubmit"  class="q-gutter-md justify-center">
         <h5 class="titulo">Criar Conta</h5>
         <p>Aproveite sua vida profissional ao máximo</p>
-        <div class="justify-center">
+        <div class="form">
         <q-input
         class="input"
           filled
           v-model="email"
           label="Digite seu email*"
           lazy-rules
-          :rules="[(val) => (val && val.length > 0) || 'Please type something']"
+          :rules="[(val) => (val && val.length > 0) || 'Digite um email valido!']"
         />
 
         <q-input
@@ -21,16 +21,18 @@
           v-model="senha"
           label="Crie uma senha *"
           lazy-rules
-          :rules="[(val) => (val !== null && val !== '') || 'Digite uma senha']"
+          :rules="[(val) => (val !== null && val !== '') || 'Digite uma senha!']"
         />
         </div>
+       
         <div class="q-gutter-sm">
+          <p class="text-subtitle2">Qual seu interesse ?</p>
           <q-checkbox v-model="empresa" label="Empresa" />
           <q-checkbox v-model="candidato" label="Candidato" />
         </div>
 
         <div>
-          <q-btn unelevated rounded color="primary" label="Criar conta" />
+          <q-btn unelevated rounded color="primary" class="btncriar" label="Criar conta" />
         </div>
       </q-form>
       <p class="entrar">
@@ -44,7 +46,7 @@ export default {
   name: "Criarconta",
   data() {
     return {
-      empresa: true,
+      empresa: false,
       candidato: false,
       email: null,
       senha: null
@@ -76,10 +78,14 @@ export default {
 .titulo {
   color: rgb(25, 118, 210);
   font-weight: bold;
+  margin: 69px 0 14px;
+}
+.btncriar{
+  width: 16%;
 }
 
 .entrar {
-  margin: 30px auto;
+  margin: 30px auto 65px;
 }
 
 .formulario {
@@ -87,9 +93,13 @@ export default {
   display: contents;
 }
 .input{
-  width: 23%;
+  width: 345px;
+  border-radius: 12px;
+  margin: 9px auto;
 }
 .form{
-  display block-ruby;
+  display: flex;
+  flex-direction: column;
+  align-items: center
 }
 </style>
