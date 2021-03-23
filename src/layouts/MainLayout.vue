@@ -12,7 +12,7 @@
           <q-route-tab class="text-primary links q-mx-sm" to="/" label="Ver vagas" />
           <hr class="q-py-sm">
           <q-route-tab class="text-primary links q-mx-sm" to="/" label="Cadastre sua vaga" />
-          <q-btn class="text-weight-bold" outline rounded color="primary" label="Fazer login" />
+          <q-btn unelevated rounded color="primary" label="Fazer login" />
 
           <!-- <q-btn flat rounded color="primary" label="Ver vagas" />
           <hr class="q-py-sm">
