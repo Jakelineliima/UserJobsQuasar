@@ -10,7 +10,7 @@
         <q-tabs class="links">
           <q-btn flat rounded color="primary" label="Ver vagas" />
           <hr class="q-py-sm">
-          <q-btn flat rounded color="primary" label="Cadastre sua vaga" />
+          <q-btn flat rounded color="primary" label="Cadastre sua vaga"/>
           <q-btn unelevated rounded color="primary" label="Fazer login" />
         </q-tabs>
       </q-toolbar>
