@@ -9,9 +9,9 @@
         </q-toolbar-title>
         <q-tabs>
           <!--Codigo Novo-->
-          <q-route-tab to="/" label="Ver vagas" />
+          <q-route-tab class="text-primary links q-mx-sm" to="/" label="Ver vagas" />
           <hr class="q-py-sm">
-          <q-route-tab to="/" label="Cadastre sua vaga" />
+          <q-route-tab class="text-primary links q-mx-sm" to="/" label="Cadastre sua vaga" />
           <q-btn class="text-weight-bold" outline rounded color="primary" label="Fazer login" />
 
           <!-- <q-btn flat rounded color="primary" label="Ver vagas" />
@@ -59,16 +59,16 @@ export default {
   width: 120px;
 }
 
+.links:hover{
+  border-radius 50px;
+}
+
 .paginas {
   background-color: #f8f9fa;
 }
 
 /*.logoimg {
   margin-left: 85px;
-}
-
-.links {
-  margin-right: 120px;
 }
 
 .btns {
