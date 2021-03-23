@@ -1,22 +1,29 @@
 <template>
   <q-layout view="hHh LpR fFf">
     <q-header class="text-dark bg-white fixed" height-hint="98">
-      <q-toolbar style="height: 86px">
-        <q-toolbar-title class="logoimg">
+      <q-toolbar class="q-mt-md q-px-xl">
+        <q-toolbar-title>
           <a href="">
             <img class="logo" src="../assets/imagem/logo.png" />
           </a>
         </q-toolbar-title>
-        <q-tabs class="links">
-          <q-btn flat rounded color="primary" label="Ver vagas" />
+        <q-tabs>
+          <!--Codigo Novo-->
+          <q-route-tab to="/" label="Ver vagas" />
+          <hr class="q-py-sm">
+          <q-route-tab to="/" label="Cadastre sua vaga" />
+          <q-btn class="text-weight-bold" outline rounded color="primary" label="Fazer login" />
+
+          <!-- <q-btn flat rounded color="primary" label="Ver vagas" />
           <hr class="q-py-sm">
           <q-btn flat rounded color="primary" label="Cadastre sua vaga" />
           <q-btn unelevated rounded color="primary" label="Fazer login" />
+          -->
         </q-tabs>
       </q-toolbar>
     </q-header>
 
-    <q-page-container class="paginas" style="background: #f8f9fa">
+    <q-page-container class="paginas">
       <router-view />
     </q-page-container>
 
@@ -56,7 +63,7 @@ export default {
   background-color: #f8f9fa;
 }
 
-.logoimg {
+/*.logoimg {
   margin-left: 85px;
 }
 
@@ -67,7 +74,7 @@ export default {
 .btns {
   margin-left: 10px;
 }
-
+*/
 .menuburgue {
   background-color: #000;
 }
