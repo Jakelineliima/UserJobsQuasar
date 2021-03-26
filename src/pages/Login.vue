@@ -26,7 +26,7 @@
             <div class="q-pb-md">
                 <q-btn outlined rounded class="q-px-xl" label="Entrar" type="submit" color="primary"/>
             </div>
-            <p class="text-blue-grey-12">Novo no User Jobs? <a href="/criarconta" style="text-decoration: none" class="text-primary">Cadastre-se</a></p>
+            <p class="text-blue-grey-12">Novo no User Jobs? <router-link to="/criarconta" style="text-decoration: none" class="text-primary">Cadastre-se</router-link></p>
         </q-form>
         </div>
     </q-page>

@@ -46,7 +46,7 @@
         </div>
       </q-form>
       <p class="entrar">
-        Já se cadastrou no Use Jobs? <a style="text-decoration: none" class="text-primary" href="/login">Entre agora</a>
+        Já se cadastrou no Use Jobs? <router-link style="text-decoration: none" class="text-primary" to="/login">Entre agora</router-link>
       </p>
     </div>
   </div>

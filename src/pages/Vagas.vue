@@ -9,7 +9,31 @@
         <img class="menina" src="../assets/imagem/vagas.png" />
       </div>
     </div>
-
+    <div class="card">
+      <q-card flat bordered class="my-card bg-grey-1">
+      <q-card-section>
+        <div class="row items-center no-wrap">
+          <div class="col">
+            <div class="text-subtitle2 titulo">
+              Coordenador administrativo agrícola
+            </div>
+            <div class="text-subtitle2">Agrivitta - Agrotoxicos</div>
+            <div>CENTRO - ITÁPOLIS - SP</div>
+            <p>Horário: 12:00 as 18:00</p>
+          </div>
+        </div>
+      </q-card-section>
+      <q-separator />
+      <q-card-actions>
+        <q-btn
+          unelevated
+          rounded
+          color="primary"
+          class="btncriar"
+          label="Ver vaga"
+        />
+      </q-card-actions>
+    </q-card>
     <q-card flat bordered class="my-card bg-grey-1">
       <q-card-section>
         <div class="row items-center no-wrap">
@@ -23,19 +47,43 @@
           </div>
         </div>
       </q-card-section>
-
       <q-separator />
-
       <q-card-actions>
         <q-btn
-            unelevated
-            rounded
-            color="primary"
-            class="btncriar"
-            label="Ver vaga"
-          />
+          unelevated
+          rounded
+          color="primary"
+          class="btncriar"
+          label="Ver vaga"
+        />
       </q-card-actions>
     </q-card>
+    <q-card flat bordered class="my-card bg-grey-1">
+      <q-card-section>
+        <div class="row items-center no-wrap">
+          <div class="col">
+            <div class="text-subtitle2 titulo">
+              Coordenador administrativo agrícola
+            </div>
+            <div class="text-subtitle2">Agrivitta - Agrotoxicos</div>
+            <div>CENTRO - ITÁPOLIS - SP</div>
+            <p>Horário: 12:00 as 18:00</p>
+          </div>
+        </div>
+      </q-card-section>
+      <q-separator />
+      <q-card-actions>
+        <q-btn
+          unelevated
+          rounded
+          color="primary"
+          class="btncriar"
+          label="Ver vaga"
+        />
+      </q-card-actions>
+    </q-card>
+    </div>
+    
   </div>
 </template>
 <style lang="stylus">
@@ -52,6 +100,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin: 35px auto;
 }
 
 .card1 {
@@ -68,10 +117,12 @@
   color: rgb(25, 118, 210);
   font-weight: bold;
 }
-.btncriar{
-    margin: 12px auto
-    width:100%;
+
+.btncriar {
+  margin: 12px auto;
+  width: 100%;
 }
+
 .my-card {
   width: 100%;
   max-width: 250px;
