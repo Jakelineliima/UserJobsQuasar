@@ -31,6 +31,7 @@
           color="primary"
           class="btncriar"
           label="Ver vaga"
+          to="/vervaga"
         />
       </q-card-actions>
     </q-card>
@@ -55,6 +56,7 @@
           color="primary"
           class="btncriar"
           label="Ver vaga"
+          to="/vervaga"
         />
       </q-card-actions>
     </q-card>
@@ -79,6 +81,7 @@
           color="primary"
           class="btncriar"
           label="Ver vaga"
+          to="/vervaga"
         />
       </q-card-actions>
     </q-card>
