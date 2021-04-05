@@ -11,7 +11,7 @@
           <!--Codigo Novo-->
           <q-route-tab class="text-primary links q-mx-sm" to="/vagas" label="Ver vagas" />
           <hr class="q-py-sm">
-          <q-route-tab class="text-primary links q-mx-sm" to="/" label="Cadastre sua vaga" />
+          <q-route-tab class="text-primary links q-mx-sm" to="/cadastrarvaga" label="Cadastre sua vaga" />
           <q-btn unelevated rounded color="primary" label="Fazer login" to="/login" />
           
           <!-- <q-btn flat rounded color="primary" label="Ver vagas" />
