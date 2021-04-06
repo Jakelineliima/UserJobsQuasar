@@ -31,7 +31,7 @@
       <div class="bg-primary row justify-between q-py-md">
 
         <div class="q-px-xl">
-          <p class="text-weight-bold">Sobre a Use Jobs</p>
+          <router-link class="text-weight-bold" to="/sobre">Sobre a UseJobs</router-link>
         </div>
 
         <div class="q-px-xl">
