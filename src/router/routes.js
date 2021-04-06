@@ -11,7 +11,8 @@ const routes = [
       { path: 'vagas', component: () => import('pages/Vagas.vue')},
       { path: 'vervaga', component: () => import('src/pages/Vervaga.vue') },
       { path: 'cadastrarvaga', component: () => import('pages/Cadastrarvaga.vue') },
-      { path: 'sobre', component: () => import('pages/Sobre.vue') }
+      { path: 'sobre', component: () => import('pages/Sobre.vue') },
+      { path: 'sobrein', component: () => import('pages/SobreIn.vue') }
     
     ]
   },

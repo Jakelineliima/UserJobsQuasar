@@ -9,7 +9,7 @@
       as vagas mais relevantes do mercado, contribuindo para uma maior
       satisfação profissional
     </p>
-    <img src="../assets/imagem/sobre.png" alt="Imagem de três conversando">
+    <img src="../assets/imagem/sobre.png" alt="Imagem de três conversando" />
 
     <h6 class="text-primary" style="margin-bottom: 1em">
       OPORTUNIDADES DO MERCADO PARA MÃO DE OBRA OPERACIONAL
@@ -30,6 +30,20 @@
         nosso site e também pelo nosso aplicativo Use Jobs.
       </li>
     </ul>
+
+    <hr>
+
+    <q-text class="text-subtitle1"> Temos uma versão em inglês.
+      <q-btn
+          unelevated
+          rounded
+          color="primary"
+          class="in"
+          label="Clique aqui !"
+          to="/sobrein"
+        />
+    </q-text>
+        
   </div>
 </template>
 <style lang="stylus">
@@ -38,7 +52,14 @@
     margin: 70px auto;
     padding: 0 240px;
 }
+.in{
+  text-align: center;
+  margin: 25px auto;
+}
 p,li,h6{
   text-align: justify;
+}
+hr{
+  margin: 25px auto;
 }
 </style>
