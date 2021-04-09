@@ -13,7 +13,8 @@ const routes = [
       { path: 'cadastrarvaga', component: () => import('pages/Cadastrarvaga.vue') },
       { path: 'sobre', component: () => import('pages/Sobre.vue') },
       { path: 'sobrein', component: () => import('pages/SobreIn.vue') },
-      { path: 'vizualizarcurriculo', component: () => import('pages/Vizualizarcurriculo.vue')}
+      { path: 'vizualizarcurriculo', component: () => import('pages/Vizualizarcurriculo.vue') },
+      { path: 'dadosp', component: () => import('pages/Dadosp.vue') }
     
     ]
   },

@@ -1,25 +1,36 @@
 <template>
   <q-layout view="hHh LpR fFf">
-    <q-header class="text-dark bg-white fixed" height-hint="98">
-      <q-toolbar class="q-mt-md q-px-xl">
+    <q-header class="text-dark bg-white fixed " height-hint="98">
+      <q-toolbar class="q-mt-mdquas menu">
         <q-toolbar-title>
           <a href="">
             <img class="logo" src="../assets/imagem/logo.png" />
           </a>
         </q-toolbar-title>
-        <q-tabs>
-          <!--Codigo Novo-->
-          <q-route-tab class="text-primary links q-mx-sm" to="/vagas" label="Ver vagas" />
-          <hr class="q-py-sm">
-          <q-route-tab class="text-primary links q-mx-sm" to="/cadastrarvaga" label="Cadastre sua vaga" />
-          <q-btn unelevated rounded color="primary" label="Fazer login" to="/login" />
-          
-          <!-- <q-btn flat rounded color="primary" label="Ver vagas" />
-          <hr class="q-py-sm">
-          <q-btn flat rounded color="primary" label="Cadastre sua vaga"/>
-          <q-btn unelevated rounded color="primary" label="Fazer login" />
-          -->
-        </q-tabs>
+        <div class="q-gutter-y-md menubtns">
+          <q-tabs>
+            <!--Codigo Novo-->
+            <q-route-tab
+              class="text-primary links q-mx-sm"
+              to="/vagas"
+              label="VER VAGAS"
+            />
+            <hr class="q-py-sm" />
+            <q-route-tab
+              class="text-primary links q-mx-sm"
+              to="/cadastrarvaga"
+              label="CADASTRE SUA VAGA"
+            />
+            <q-btn
+              unelevated
+              rounded
+              color="primary"
+              label="FAZER LOGIN"
+              to="/login"
+            />
+          </q-tabs>
+        </div>
+
       </q-toolbar>
     </q-header>
 
@@ -29,19 +40,24 @@
 
     <q-footer class="absolute">
       <div class="bg-primary row justify-between q-py-md">
-
         <div class="q-px-xl">
-          <router-link class="text-weight-bold" to="/sobre">Sobre a UseJobs</router-link>
+          <router-link class="text-weight-bold link" to="/sobre"
+            >Sobre a UseJobs</router-link
+          >
         </div>
 
         <div class="q-px-xl">
           <p class="text-weight-bold">Contato</p>
           <a href="#" class="text-white">usejobs@gmail.com</a>
         </div>
-
       </div>
       <div class="bg-white" style="padding: 15px">
-        <p class="text-dark text-center align-center text-weight-bold text-blue-grey-7 " style="margin: 0">2021 / Todos os direitos reservados.</p>
+        <p
+          class="text-dark text-center align-center text-weight-bold text-blue-grey-7 "
+          style="margin: 0"
+        >
+          2021 / Todos os direitos reservados.
+        </p>
       </div>
     </q-footer>
   </q-layout>
@@ -51,7 +67,7 @@
 export default {
   data() {
     return {};
-  },
+  }
 };
 </script>
 <style lang="stylus">
@@ -62,7 +78,10 @@ export default {
 .links:hover{
   border-radius 50px;
 }
-
+.link{
+  text-decoration: none;
+  color: #fff
+}
 .paginas {
   background-color: #f8f9fa;
 }
@@ -87,4 +106,15 @@ export default {
   width: 1126px !important;
 }
 
+@media screen and (max-width: 674px) {
+  .menu{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  .menubtns{
+    
+  }
+}
 </style>
