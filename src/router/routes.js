@@ -9,12 +9,14 @@ const routes = [
       { path: 'interessado', component: () => import('pages/Interessado.vue') },
       { path: 'login', component: () => import('pages/Login.vue')},
       { path: 'vagas', component: () => import('pages/Vagas.vue')},
-      { path: 'vervaga', component: () => import('src/pages/Vervaga.vue') },
+      { path: 'vervaga', component: () => import('pages/Vervaga.vue') },
       { path: 'cadastrarvaga', component: () => import('pages/Cadastrarvaga.vue') },
       { path: 'sobre', component: () => import('pages/Sobre.vue') },
       { path: 'sobrein', component: () => import('pages/SobreIn.vue') },
       { path: 'vizualizarcurriculo', component: () => import('pages/Vizualizarcurriculo.vue') },
-      { path: 'dadosp', component: () => import('pages/Dadosp.vue') }
+      { path: 'dadosp', component: () => import('pages/Dadosp.vue') },
+      { path: 'editardados', component: () => import('pages/Editardados.vue') },
+      { path: 'usuario', component: () => import('pages/Usuario.vue') }
     
     ]
   },

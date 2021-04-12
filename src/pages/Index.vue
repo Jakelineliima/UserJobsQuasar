@@ -3,9 +3,8 @@
     <div class="cards card2 container">
       <div class="card">
         <div>
-          <p class="text-h5 titulo">
-            Conheça sua nova vida profissional na Use Jobs,<br />
-            temos vagas para todas as áreas.
+          <p class="text-h5 titulo title">
+            Conheça sua nova vida profissional na Use Jobs, temos vagas para todas as áreas.
           </p>
         </div>
         <div>
@@ -18,12 +17,12 @@
       </div>
       <div class="card card2">
         <div>
-          <p class="text-h5 titulo">
+          <p class="text-h5 titulo title2">
             Fique por dentro das novidades do seu setor
           </p>
-          <p class="subtitilu">
-            Desde vagas com experiência, até pra você que está iniciando <br/> no
-            mercado de trabalho, Use Jobs oferece espaço para <br/>todos em
+          <p class="subtitilu title3">
+            Desde vagas com experiência, até pra você que está iniciando no
+            mercado de trabalho, Use Jobs oferece espaço para todos em
             todas as areas.
           </p>
         </div>
@@ -79,5 +78,23 @@ export default {
 }
 .container{
    width:1126px  !important;
+}
+@media screen and (max-width: 800px) {
+  .titulo{
+    margin: auto;
+  }
+  .card{
+    flex-direction: column;
+    align-items: center;
+  }
+  .title{
+    margin: -90px 12px 0 12px;
+  }
+  .title2{
+    margin: -36px 12px 0 12px;
+  }
+  .title3{
+    margin: 29px 12px auto;
+  }
 }
 </style>

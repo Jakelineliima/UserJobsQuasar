@@ -62,4 +62,10 @@ p,li,h6{
 hr{
   margin: 25px auto;
 }
+@media screen and (max-width:800px) {
+  .sobre{
+    padding: 0;
+    margin: 0 49px 0 49px;
+  }
+}
 </style>

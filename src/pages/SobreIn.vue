@@ -55,4 +55,10 @@ p,li,h6{
 .in{
   text-align: center;
 }
+@media screen and (max-width:800px) {
+  .sobre{
+    padding: 0;
+    margin: 0 49px 0 49px;
+  }
+}
 </style>

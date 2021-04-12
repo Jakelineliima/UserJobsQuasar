@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-evenly cont">
-    <div>
+    <div style="text-align: center">
       <h6 class="text-primary" style="margin-bottom: 1em">
         Cadastre sua vaga
       </h6>
@@ -14,55 +14,114 @@
         Dados da vaga
       </h6>
       <q-input
-        filled
+        outlined
+        vclearable
+        rounded-radios
         color="deep-primary"
         class="bg-white"
-        v-model="email"
+        v-model="nome"
         type="text"
         label="Nome do contratante"
-      />
+        :rules="[
+            val => val && val.length > 0 || 'Nome obrigatório'
+          ]"
+      >
+        <template v-slot:prepend>
+          <q-icon name="person" />
+        </template>
+      </q-input>
+
       <q-input
-        filled
+        outlined
+        clearable
+        rounded-radios
         color="deep-primary"
         class="bg-white phone"
         v-model="telefone"
         type="text"
         label="Telefone"
-      />
+         :rules="[
+          val => val && val.length > 0 || 'Telefone obrigatório',
+          val => val.length === 11 || 'Coloque um telefone real'
+        ]"
+      >
+        <template v-slot:prepend>
+          <q-icon name="phone" />
+        </template>
+      </q-input>
+
       <q-input
-        filled
+        outlined
+        clearable
+        rounded-radios
         color="deep-primary"
         class="bg-white"
         v-model="endereco"
         type="text"
         label="Endereço"
-      />
+        :rules="[
+            val => val && val.length > 0 || 'Endereco obrigatório'
+          ]"
+      >
+        <template v-slot:prepend>
+          <q-icon name="home" />
+        </template>
+      </q-input>
+
       <q-select
-        filled
-        v-model="model"
+        outlined
+        clearable
+        rounded-radios
+        v-model="escolaridade"
         :options="options"
         label="Escolaridade"
         class="btndrop"
-      />
+        :rules="[
+            val => val && val.length > 0 || 'Selecione o nivel escolar'
+          ]"
+      >
+        <template v-slot:prepend>
+          <q-icon name="school" />
+        </template>
+      </q-select>
 
       <q-input
-        filled
+        outlined
+        clearable
+        rounded-radios
         color="deep-primary"
         class="bg-white"
-        v-model="endereco"
+        v-model="cargo"
         type="text"
         label="Cargo"
-      />
+        :rules="[
+            val => val && val.length > 0 || 'Digite o cargo predentido'
+          ]"
+      >
+        <template v-slot:prepend>
+          <q-icon name="badge" />
+        </template>
+      </q-input>
 
       <q-select
-        filled
-        v-model="model"
+        outlined
+        clearable
+        rounded-radios
+        v-model="experiencia"
         :options="exp"
         label="Experiencia"
         class="btndrop"
-      />
+        :rules="[
+            val => val && val.length > 0 || 'Selecione a experiencia'
+          ]"
+      >
+      <template v-slot:prepend>
+          <q-icon name="work" />
+        </template>
+      </q-select>
 
       <q-btn
+        @click="cadastrarVaga"
         unelevated
         rounded
         color="primary"
@@ -100,8 +159,14 @@
 export default {
   data() {
     return {
+      nome: "",
+      telefone: "",
+      endereco: "",
+      cargo: "",
+      escolaridade: "",
+      experiencia: "",
+      listaVaga: [],
       resposta: true,
-
       model: null,
       options: [
         "Ensino fundamental completo",
@@ -112,10 +177,28 @@ export default {
         "Ensino superior completo",
         "Ensino superior incompleto"
       ],
-      exp: [
-        "Sim", "Não"
-      ]
+      exp: ["Sim", "Não"]
     };
-  }
+  },
+  /*methods: {
+    cadastrarVaga() {
+      this.listaVaga
+        .push({
+          nome: this.nome,
+          telefone: this.telefone,
+          endereco: this.endereco,
+          escolaridade: this.escolaridade,
+          cargo: this.cargo,
+          experiencia: this.experiencia
+        })
+        .onOk(() => {
+          this.listaVaga.splice(index, 1);
+          this.$q.notify({
+            message: "Sua vaga foi cadastrada",
+            color: "green"
+          });
+        });
+    }
+  }*/
 };
 </script>

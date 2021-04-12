@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md cont">
-    <div class="">
+    <div>
       <div class="col">
         <q-text class="text-h6 text-primary">Coodernador administrativo</q-text>
         <br />
@@ -8,13 +8,13 @@
         <p class="text-weight-light">
           Avenida Palmas N°445 Centro - ITÁPOLIS-SP
         </p>
-        <p class="text-subtitle2">Numero de contato: 016 32659778</p>
+        <p class="text-subtitle2">Numero de contato:</p>
       </div>
       <div class="">
         <q-text class="text-h6 text-primary">Sobre essa vaga</q-text>
         <div class="row justify-around cardsobre">
           <q-text class="text-subtitle2">Precisa ter experiencia - Sim</q-text>
-          <q-text class="text-subtitle2"
+          <q-text class="text-subtitle2 txt"
             >Nivel de escolaridade - Ensino Superior incompleto</q-text
           >
         </div>
@@ -52,6 +52,7 @@
   </div>
 </template>
 <script>
+
 export default {
   data() {
     return {
@@ -61,7 +62,7 @@ export default {
   }
 };
 </script>
-<style lang="stylus">
+<style>
 .cardsobre{
   margin: 33px auto;
 }
@@ -71,5 +72,22 @@ export default {
 }
 .cont{
   margin: 20px 90px;
+}
+@media screen and (max-width: 800px) {
+  .cont{
+    margin: 0;
+  }
+  .cardsobre{
+    justify-content: normal;
+  }
+  .txt{
+    margin-top: 14px;
+  }
+  .my-card{
+    max-width: 100%;
+  }
+  .btn{
+    width: 47%;
+  }
 }
 </style>

@@ -1,72 +1,129 @@
 <template>
   <q-page class="flex flex-center">
     <q-card class="q-pa-md" style="width: 800px">
-      <div class="card">
+      <div>
         <div>
-            <p class="text-h5 titulo text-primary"> Teste de cabeçalho</p>
-            <h3 class="q-mb-xs text-primary">Dados pessoais</h3>
-            <p class="q-mb-lg text-blue-grey-12">Mantenha seus dados sempre atualizados.</p>
-            <q-input
-            filled
-            color="deep-purple"
+          <p class="text-h5 titulo text-primary">Ester Nundes Line</p>
+          <h6 class="q-mb-xs text-primary">Dados pessoais</h6>
+          <p class="q-mb-lg text-blue-grey-12">
+            Mantenha seus dados sempre atualizados.
+          </p>
+          <q-input
+            outlined
+            vclearable
+            rounded-radios
             class="bg-white"
             v-model="nome"
             type="text"
-            label="Seu nome completo" 
-            />
-            <q-input
-            filled
-            color="deep-purple"
+            label="Seu nome completo"
+            :rules="[
+              val => (val && val.length > 0) || 'Digite seu nome completo'
+            ]"
+          >
+            <template v-slot:prepend>
+              <q-icon name="person" />
+            </template>
+          </q-input>
+          <q-input
+            outlined
+            vclearable
+            rounded-radios
             class="bg-white"
             v-model="email"
-            type="password"
-            label="E-mail" 
-            />
-            <q-input
-            filled
-            color="deep-purple"
+            type="email"
+            label="E-mail"
+            :rules="[val => (val && val.length > 0) || 'Digite seu email']"
+          >
+            <template v-slot:prepend>
+              <q-icon name="email" />
+            </template>
+          </q-input>
+          <q-input
+            outlined
+            vclearable
+            rounded-radios
             class="bg-white"
             v-model="endereco"
-            type="password"
-            label="Endereço" 
-            />
-            <q-input
-            filled
-            color="deep-purple"
-            class="bg-white"
-            v-model="formacao"
-            type="password"
-            label="Formação" 
-            />
-            <q-input
-            filled
-            color="deep-purple"
+            type="text"
+            label="Endereço"
+            :rules="[val => (val && val.length > 0) || 'Digite seu endereço']"
+          >
+            <template v-slot:prepend>
+              <q-icon name="home" />
+            </template>
+          </q-input>
+          <q-select
+            outlined
+            clearable
+            rounded-radios
+            v-model="escolaridade"
+            :options="options"
+            label="Escolaridade"
+            class="btndrop"
+            :rules="[
+              val => (val && val.length > 0) || 'Selecione o nivel escolar'
+            ]"
+          >
+            <template v-slot:prepend>
+              <q-icon name="school" />
+            </template>
+          </q-select>
+          <q-input
+            outlined
+            vclearable
+            rounded-radios
             class="bg-white"
             v-model="telefone"
             type="password"
-            label="Telefone" 
+            label="Telefone"
+          >
+            <template v-slot:prepend>
+              <q-icon name="phone" />
+            </template>
+          </q-input>
+          <div class="q-pb-md">
+            <q-btn
+              unelevated
+              rounded
+              class="q-px-xl btn"
+              label="Salvar"
+              type="submit"
+              color="primary"
             />
-            <div class="q-pb-md">
-                <q-btn outlined rounded class="q-px-xl" label="Editar dados" type="submit" color="primary"/> <br>
-                <q-btn outlined rounded class="q-px-xl" label="Salvar" type="submit" color="red"/>
-            </div>
-            </div>
+          </div>
         </div>
+      </div>
     </q-card>
   </q-page>
 </template>
 
 <script>
 export default {
-  name: 'login',
-  data (){
-    return{
-        nome: null,
-        email: null,
-        endereco: null,
-        formacao: null,
-        telefone: null
-    }
+  data() {
+    return {
+      escolaridade: "",
+      options: [
+      "Ensino fundamental completo",
+      "Ensino fundamental incompleto",
+      "Ensino medio completo",
+      "Ensino medio incompleto",
+      "Ensino medio completo",
+      "Ensino superior completo",
+      "Ensino superior incompleto"
+    ]
+    };
+  },
+  
+};
+</script>
+<style>
+.btn{
+  float: right;
+  margin: 28px auto 28px;
+}
+@media screen and (max-width: 400px) {
+  .btn{
+    width: 100%;
   }
 }
-</script>
+</style>

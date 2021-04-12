@@ -14,7 +14,7 @@
         <q-text class="text-h6 text-primary">Sobre o candidato</q-text>
         <div class="row justify-around cardsobre">
           <q-text class="text-subtitle2">Tem experiência - Sim</q-text>
-          <q-text class="text-subtitle2"
+          <q-text class="text-subtitle2 txt"
             >Nivel de escolaridade - Ensino Superior completo</q-text
           >
         </div>
@@ -63,7 +63,7 @@ export default {
   }
 };
 </script>
-<style lang="stylus">
+<style>
 .cardsobre{
   margin: 33px auto;
 }
@@ -73,5 +73,19 @@ export default {
 }
 .cont{
   margin: 20px 90px;
+}
+@media screen and (max-width: 800px) {
+  .btn{
+    width: auto;
+  }
+  .cont{
+    margin: 0;
+  }
+  .cardsobre{
+    justify-content: normal;
+  }
+  .txt{
+    margin-top: 14px;
+  }
 }
 </style>

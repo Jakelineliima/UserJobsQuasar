@@ -3,22 +3,22 @@
   padding
   class="row justify-around">
 
-    <div style="padding: 0 auto">
-      <h3 style="margin-bottom: .2em" class="text-primary">Cadastre seu curriculo</h3>
+    <div style="padding: 0 auto" class="int">
+      <h6  style="margin-bottom: 1em" class="text-primary">Envie seu curriculo</h6>
       <p style="margin-top: 0">
       Envie seu
       <a href="#"
       style="text-decoration: none"
       class="text-primary">curriculo</a>
-      para a empresa analisar. <br>Boa Sorte!</p>
-      <img class="self-end" src="../assets/imagem/Group 147.png" alt="">
+      para a empresa analisar. <br>Boa Sorte !</p>
+      <img class="self-end menina" src="../assets/imagem/Group 147.png" alt="">
     </div>
 
     <div style="padding: 0 auto">
-      <h3 class="text-center text-primary">Informe seus dados</h3>
+      <h6 class="text-center text-primary">Informe seus dados</h6>
       <q-form
       @submit="onSubmit"
-      class="q-col-gutter-md"
+      class="q-col-gutter-md form"
       ref="myform"
       >
         <q-input
@@ -165,3 +165,19 @@ export default {
   }
 }
 </script>
+<style>
+.form{
+  width: 280px;
+}
+.menina{
+    width: 70%
+  }
+@media screen and (max-width: 800px){
+  .int{
+    text-align:center;
+  }
+  .menina{
+    width: 240px;
+  }
+}
+</style>
