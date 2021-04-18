@@ -8,7 +8,7 @@
             <img class="logo" src="../assets/imagem/logo.png" />
           </a>
         </q-toolbar-title>
-        <q-btn color="primary" icon="menu" class="menuburgue">
+        <q-btn  icon="menu" class="menuburgue">
         <q-menu>
           <q-list style="min-width: 100px">
             <q-item clickable v-close-popup>
@@ -62,7 +62,7 @@
 
     <q-footer class="absolute">
       <div class="bg-primary row justify-between q-py-md">
-        <div class="q-px-xl">
+        <div class="q-px-xl sobre">
           <router-link class="text-weight-bold link" to="/sobre"
             >Sobre a UseJobs</router-link
           >
@@ -157,6 +157,9 @@
     justify-content: center;
     align-items: center;
   }
+  .sobre{
+  margin: 12px 0 24px 0;
+}
 }
 </style>
 <script>
