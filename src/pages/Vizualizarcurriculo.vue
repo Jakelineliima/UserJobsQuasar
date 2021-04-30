@@ -40,6 +40,7 @@
             class="btn"
             label="Não aceito"
           />
+          
            <q-btn
             unelevated
             rounded

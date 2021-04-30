@@ -60,7 +60,7 @@
         type="text"
         label="Endereço"
         :rules="[
-            val => val && val.length > 0 || 'Endereco obrigatório'
+            val => val && val.length > 0 || 'Endereço obrigatório'
           ]"
       >
         <template v-slot:prepend>

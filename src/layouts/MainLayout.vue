@@ -8,6 +8,29 @@
             <img class="logo" src="../assets/imagem/logo.png" />
           </a>
         </q-toolbar-title>
+
+ <q-btn-dropdown icon="menu" class="menuburgue" >
+      <q-list>
+        <q-item clickable v-close-popup @click="onItemClick">
+          <q-item-section>
+            <q-item-label> <router-link class="btn" to="/vagas">Ver vagas</router-link></q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-close-popup @click="onItemClick">
+          <q-item-section>
+            <q-item-label><router-link class="btn " to="/cadastrarvaga">Cadastrar sua vaga</router-link></q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-close-popup @click="onItemClick">
+          <q-item-section>
+            <q-item-label><router-link class="btn " to="/login">Login</router-link></q-item-label>
+          </q-item-section>
+        </q-item>
+      </q-list>
+    </q-btn-dropdown>
+<!-----
         <q-btn  icon="menu" class="menuburgue">
         <q-menu>
           <q-list style="min-width: 100px">
@@ -24,6 +47,7 @@
           </q-list>
         </q-menu>
       </q-btn>
+      --->
         <div class="q-gutter-y-md menubtns">
           <q-tabs>
             <!--Codigo Novo-->

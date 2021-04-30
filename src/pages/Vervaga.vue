@@ -18,9 +18,10 @@
             >Nivel de escolaridade - Ensino Superior incompleto</q-text
           >
         </div>
+        <!---
         <q-card
           class="my-card text-dark"
-          style=""
+          style="width: 100%"
         >
           <q-card-section>
             <div class="text-h6">Mensagem ao canditato</div>
@@ -29,7 +30,7 @@
           <q-card-section class="q-pt-none">
             {{ lorem }}
           </q-card-section>
-        </q-card>
+        </q-card> --->
         <div class="row justify-around">
            <q-btn
             unelevated
@@ -51,17 +52,7 @@
     </div>
   </div>
 </template>
-<script>
 
-export default {
-  data() {
-    return {
-      lorem:
-        "O Candidato pode estar cursando faculdade, porem é nescessario ter conhecimento em administração"
-    };
-  }
-};
-</script>
 <style>
 .cardsobre{
   margin: 33px auto;
@@ -83,9 +74,7 @@ export default {
   .txt{
     margin-top: 14px;
   }
-  .my-card{
-    max-width: 100%;
-  }
+  
   .btn{
     width: 47%;
   }
