@@ -45,6 +45,7 @@
             color="primary"
             class="btn"
             label="Canditadar"
+            to="/interessado"
           />
         </div>
         

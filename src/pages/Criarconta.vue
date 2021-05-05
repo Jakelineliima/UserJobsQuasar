@@ -1,14 +1,14 @@
 <template>
   <div class="q-pa-md formulario">
     <div class="">
-      <q-form @submit="onSubmit" class="q-gutter-md justify-center">
+      <q-form  class="q-gutter-md justify-center">
         <h5 class="titulo">Criar Conta</h5>
         <p>Aproveite sua vida profissional ao máximo</p>
         <div class="form">
           <q-input
             class="input"
             filled
-            v-model="email"
+            v-model="usuario"
             label="Digite seu email*"
             lazy-rules
             :rules="[
@@ -28,13 +28,13 @@
             ]"
           />
         </div>
-
+<!---
         <div class="q-gutter-sm">
           <p class="text-subtitle2">Qual seu interesse ?</p>
           <q-checkbox v-model="empresa" label="Empresa" />
           <q-checkbox v-model="candidato" label="Candidato" />
         </div>
-
+-->
         <div>
           <q-btn
             unelevated
@@ -42,6 +42,7 @@
             color="primary"
             class="btncriar"
             label="Criar conta"
+            @click="efetuarCadastro()"
           />
         </div>
       </q-form>
@@ -52,36 +53,29 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  name: "Criarconta",
-  data() {
+  name: 'Login',
+  data () {
     return {
-      empresa: false,
-      candidato: false,
-      email: null,
-      senha: null,
-    };
+      usuario: '',
+      senha: '',
+      
+    }
   },
   methods: {
-    onSubmit() {
-      if (this.accept !== true) {
-        this.$q.notify({
-          color: "red-5",
-          textColor: "white",
-          icon: "warning",
-          message: "You need to accept the license and terms first",
-        });
-      } else {
-        this.$q.notify({
-          color: "green-4",
-          textColor: "white",
-          icon: "cloud_done",
-          message: "Submitted",
-        });
+    ...mapActions('mainstore', ['criarConta']),    
+    async efetuarCadastro () {
+      await this.criarConta({ username: this.usuario, password: this.senha })
+      await this.carregarToken()
+      if (this.token) {
+        this.$router.push('/vagas')
       }
-    },
+    }
   },
-};
+
+}
 </script>
 <style lang="stylus">
 .titulo {

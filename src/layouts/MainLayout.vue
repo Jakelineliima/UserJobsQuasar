@@ -1,7 +1,6 @@
 <template>
   <q-layout view="hHh LpR fFf">
     <q-header class="text-dark bg-white fixed " height-hint="98">
-      
       <q-toolbar class="q-mt-mdquas menu">
         <q-toolbar-title>
           <a href="">
@@ -9,28 +8,40 @@
           </a>
         </q-toolbar-title>
 
- <q-btn-dropdown icon="menu" class="menuburgue" >
-      <q-list>
-        <q-item clickable v-close-popup @click="onItemClick">
-          <q-item-section>
-            <q-item-label> <router-link class="btn" to="/vagas">Ver vagas</router-link></q-item-label>
-          </q-item-section>
-        </q-item>
+        <q-btn-dropdown icon="menu" class="menuburgue">
+          <q-list>
+            <q-item clickable v-close-popup>
+              <q-item-section>
+                <q-item-label>
+                  <router-link class="btn" to="/vagas"
+                    >Ver vagas</router-link
+                  ></q-item-label
+                >
+              </q-item-section>
+            </q-item>
 
-        <q-item clickable v-close-popup @click="onItemClick">
-          <q-item-section>
-            <q-item-label><router-link class="btn " to="/cadastrarvaga">Cadastrar sua vaga</router-link></q-item-label>
-          </q-item-section>
-        </q-item>
+            <q-item clickable v-close-popup>
+              <q-item-section>
+                <q-item-label>
+                  <router-link class="btn " to="/cadastrarvaga"
+                    >Cadastrar sua vaga</router-link
+                  ></q-item-label
+                >
+              </q-item-section>
+            </q-item>
 
-        <q-item clickable v-close-popup @click="onItemClick">
-          <q-item-section>
-            <q-item-label><router-link class="btn " to="/login">Login</router-link></q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-btn-dropdown>
-<!-----
+            <q-item clickable v-close-popup>
+              <q-item-section>
+                <q-item-label
+                  ><router-link class="btn " to="/login"
+                    >Login</router-link
+                  ></q-item-label
+                >
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
+        <!-----
         <q-btn  icon="menu" class="menuburgue">
         <q-menu>
           <q-list style="min-width: 100px">
@@ -108,6 +119,13 @@
     </q-footer>
   </q-layout>
 </template>
+<script>
+export default {
+  data() {
+    return {};
+  }
+};
+</script>
 
 <style lang="stylus">
 .logo {
@@ -149,47 +167,4 @@
 .menu{
   margin: 13px auto;
 }
-
-@media screen and (max-width: 674px) {
-  .menu{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-  }
-  .menubtns{
-
-  }
-}
-@media screen and (max-width: 470px) {
-  .menubtns{
-    display: none
-  }
-  .btn{
-    text-decoration: none;
-    color: #000;
-  }
-  .menuburgue{
-    display: block;
-  }
-  .menu{
-    flex-direction: row;
-  }
-  header{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: center;
-  }
-  .sobre{
-  margin: 12px 0 24px 0;
-}
-}
 </style>
-<script>
-export default {
-  data() {
-    return {};
-  }
-};
-</script>

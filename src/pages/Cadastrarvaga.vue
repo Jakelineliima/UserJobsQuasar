@@ -21,10 +21,8 @@
         class="bg-white"
         v-model="nome"
         type="text"
-        label="Nome do contratante"
-        :rules="[
-            val => val && val.length > 0 || 'Nome obrigatório'
-          ]"
+        label="Nome da empresa"
+        :rules="[val => (val && val.length > 0) || 'Nome obrigatório']"
       >
         <template v-slot:prepend>
           <q-icon name="person" />
@@ -40,8 +38,8 @@
         v-model="telefone"
         type="text"
         label="Telefone"
-         :rules="[
-          val => val && val.length > 0 || 'Telefone obrigatório',
+        :rules="[
+          val => (val && val.length > 0) || 'Telefone obrigatório',
           val => val.length === 11 || 'Coloque um telefone real'
         ]"
       >
@@ -59,9 +57,7 @@
         v-model="endereco"
         type="text"
         label="Endereço"
-        :rules="[
-            val => val && val.length > 0 || 'Endereço obrigatório'
-          ]"
+        :rules="[val => (val && val.length > 0) || 'Endereço obrigatório']"
       >
         <template v-slot:prepend>
           <q-icon name="home" />
@@ -76,9 +72,7 @@
         :options="options"
         label="Escolaridade"
         class="btndrop"
-        :rules="[
-            val => val && val.length > 0 || 'Selecione o nivel escolar'
-          ]"
+        :rules="[val => (val && val.length > 0) || 'Selecione o nivel escolar']"
       >
         <template v-slot:prepend>
           <q-icon name="school" />
@@ -94,9 +88,7 @@
         v-model="cargo"
         type="text"
         label="Cargo"
-        :rules="[
-            val => val && val.length > 0 || 'Digite o cargo predentido'
-          ]"
+        :rules="[val => (val && val.length > 0) || 'Digite o cargo predentido']"
       >
         <template v-slot:prepend>
           <q-icon name="badge" />
@@ -111,17 +103,15 @@
         :options="exp"
         label="Experiencia"
         class="btndrop"
-        :rules="[
-            val => val && val.length > 0 || 'Selecione a experiencia'
-          ]"
+        :rules="[val => (val && val.length > 0) || 'Selecione a experiencia']"
       >
-      <template v-slot:prepend>
+        <template v-slot:prepend>
           <q-icon name="work" />
         </template>
       </q-select>
 
       <q-btn
-        @click="cadastrarVaga"
+        @click="cadastrarVaga()"
         unelevated
         rounded
         color="primary"
@@ -156,18 +146,18 @@
 }
 </style>
 <script>
+import { mapActions } from "vuex";
+
 export default {
   data() {
     return {
-      nome: "",
-      telefone: "",
-      endereco: "",
-      cargo: "",
-      escolaridade: "",
-      experiencia: "",
-      listaVaga: [],
+      nome: '',
+      telefone: '',
+      endereco: '',
+      cargo: '',
+      escolaridade: '',
+      experiencia: '',
       resposta: true,
-      model: null,
       options: [
         "Ensino fundamental completo",
         "Ensino fundamental incompleto",
@@ -180,25 +170,18 @@ export default {
       exp: ["Sim", "Não"]
     };
   },
-  /*methods: {
-    cadastrarVaga() {
-      this.listaVaga
-        .push({
-          nome: this.nome,
-          telefone: this.telefone,
-          endereco: this.endereco,
-          escolaridade: this.escolaridade,
-          cargo: this.cargo,
-          experiencia: this.experiencia
-        })
-        .onOk(() => {
-          this.listaVaga.splice(index, 1);
-          this.$q.notify({
-            message: "Sua vaga foi cadastrada",
-            color: "green"
-          });
-        });
+  methods: {
+    ...mapActions("mainstore", ["adicionarVaga"]),
+    async cadastrarVaga() {
+      await this.adicionarVaga({
+        nome: this.nome,
+        telefone: this.telefone,
+        endereco: this.endereco,
+        cargo: this.cargo,
+        escolaridade: this.escolaridade,
+        experiencia: this.experiencia
+      });
     }
-  }*/
+  }
 };
 </script>

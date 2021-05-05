@@ -1,13 +1,13 @@
 <template>
   <q-page padding class="row justify-center">
     <div class="q-pa-md" style="width: 400px">
-      <q-form @submit="onSubmit" class="q-gutter-md text-center">
+      <q-form class="q-gutter-md text-center">
         <h3 class="q-mb-xs text-primary">Entrar</h3>
         <p class="q-mb-lg ">Mantenha-se por dentro do seu mundo profissional</p>
         <q-input
           filled
           class="bg-white"
-          v-model="email"
+          v-model="usuario"
           type="text"
           label="Digite seu e-mail*"
         />
@@ -24,8 +24,8 @@
             rounded
             class="q-px-xl"
             label="Entrar"
-            type="submit"
             color="primary"
+            @click="efetuarLogin()"
           />
         </div>
         <p class="text-blue-grey-12">
@@ -41,15 +41,32 @@
     </div>
   </q-page>
 </template>
-
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
-  name: "login",
-  data() {
+  name: 'Login',
+  data () {
     return {
-      email: null,
-      senha: null
-    };
+      usuario: '',
+      senha: ''
+    }
+  },
+  methods: {
+    ...mapActions('mainstore', ['login','logout','carregarToken']),    
+    async efetuarLogin () {
+      await this.login({ username: this.usuario, password: this.senha })
+      await this.carregarToken()
+      if (this.token) {
+        this.$router.push('/cadastrarvaga')
+      }
+    },
+    efetuarLogout () {
+      this.logout()
+    }
+  },
+  computed: {
+    ...mapGetters('mainstore', ['token'])
   }
-};
+}
 </script>
