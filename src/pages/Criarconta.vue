@@ -8,7 +8,7 @@
           <q-input
             class="input"
             filled
-            v-model="usuario"
+            v-model="username"
             label="Digite seu email*"
             lazy-rules
             :rules="[
@@ -20,7 +20,7 @@
             class="input"
             filled
             type="password"
-            v-model="senha"
+            v-model="password"
             label="Crie uma senha *"
             lazy-rules
             :rules="[
@@ -59,19 +59,19 @@ export default {
   name: 'Login',
   data () {
     return {
-      usuario: '',
-      senha: '',
+      username: '',
+      password: '',
       
     }
   },
   methods: {
-    ...mapActions('mainstore', ['criarConta']),    
-    async efetuarCadastro () {
-      await this.criarConta({ username: this.usuario, password: this.senha })
-      await this.carregarToken()
-      if (this.token) {
-        this.$router.push('/vagas')
-      }
+    ...mapActions('mainstore', ['adicionarConta']),    
+    async efetuarCadastro() {
+       await this.adicionarConta({
+        username: this.username,
+        password: this.password,
+        
+      });
     }
   },
 

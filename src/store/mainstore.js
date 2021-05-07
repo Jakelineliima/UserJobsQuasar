@@ -3,7 +3,9 @@ import { api } from 'boot/axios'
 
 const state = {
   token: '',
-  Cadastrovaga: []
+  Cadastrovaga: [],
+  Curriculocad: [],
+  Contacriar: []
 }
 
 const mutations = {
@@ -13,6 +15,12 @@ const mutations = {
   
   ADICIONAR_VAGA (state, Cadastrovaga) {
     state.Cadastrovaga.push(Cadastrovaga)
+  },
+  ADICIONAR_CURRICULO (state, Curriculo) {
+    state.Curriculocad.push(Curriculo)
+  },
+  ADICIONAR_CONTA(state, Conta) {
+    state.Contacriar.push(Conta)
   }
 }
 
@@ -49,12 +57,29 @@ const actions = {
       commit('ADICIONAR_VAGA', response.data)
       Notify.create({ color: 'positive', position: 'top', message: 'Sua Vaga foi cadastrada com sucesso'})  
     })
+  },
+  adicionarCurriculo ({ commit }, Curriculo) {
+    api.post('/interessado', Curriculo)
+      .then((response) => {
+        commit('ADICIONAR_CURRICULO', response.data)
+        Notify.create({color: 'positive', position: 'top', message: 'Seu curriculo foi enviado com sucesso.'})
+    })
+  },
+  adicionarConta ({ commit }, Conta) {
+    api.post('/criarconta', Conta)
+      .then((response) => {
+        commit('ADICIONAR_CONTA', response.data)
+        Notify.create({color: 'positive', position: 'top', message: 'Seu conta foi criada com sucesso.'})
+    })
   }
 }
 
 const getters = {
   token: (state) => state.token,
-  cadastrarvaga: (state) => state.cadastrarvaga
+  cadastrarvaga: (state) => state.cadastrarvaga,
+  Curriculocad: (state) => state.Curriculocad,
+  Contacriar: (state) => state.Contacriar
+
 }
 
 export default {

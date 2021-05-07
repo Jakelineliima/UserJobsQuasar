@@ -36,6 +36,7 @@
         color="deep-primary"
         class="bg-white phone"
         v-model="telefone"
+        mask="(##) #####-####"
         type="text"
         label="Telefone"
         :rules="[
