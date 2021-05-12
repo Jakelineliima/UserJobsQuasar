@@ -10,7 +10,31 @@
       </div>
     </div>
     <div class="card">
-      <q-card flat bordered class="my-card bg-grey-1">
+      <q-card flat bordered class="my-card bg-grey-1" v-for="cadastrarvaga in Cadastrovaga" :key="cadastrarvaga.id">
+        <q-card-section>
+          <div class="row items-center no-wrap">
+            <div class="col">
+              <div class="text-subtitle2 titulo">
+                {{ cadastrarvaga.nome }}
+              </div>
+              <div class="text-subtitle2">{{cadastrarvaga.cargo}}</div>
+              <div>{{ cadastrarvaga.endereco }}</div>
+              <p>Horário: 12:00 as 18:00</p>
+            </div>
+          </div>
+        </q-card-section>
+        <q-separator />
+        <q-card-actions>
+          <q-btn
+            unelevated
+            rounded
+            color="primary"
+            class="btncriar"
+            label="Ver vaga"
+          />
+        </q-card-actions>
+      </q-card>
+      <!---<q-card flat bordered class="my-card bg-grey-1">
         <q-card-section>
           <div class="row items-center no-wrap">
             <div class="col">
@@ -31,6 +55,7 @@
             color="primary"
             class="btncriar"
             label="Ver vaga"
+            to="/vervaga"
           />
         </q-card-actions>
       </q-card>
@@ -58,32 +83,7 @@
             to="/vervaga"
           />
         </q-card-actions>
-      </q-card>
-      <q-card flat bordered class="my-card bg-grey-1">
-        <q-card-section>
-          <div class="row items-center no-wrap">
-            <div class="col">
-              <div class="text-subtitle2 titulo">
-                Coordenador administrativo agrícola
-              </div>
-              <div class="text-subtitle2">Agrivitta - Agrotoxicos</div>
-              <div>CENTRO - ITÁPOLIS - SP</div>
-              <p>Horário: 12:00 as 18:00</p>
-            </div>
-          </div>
-        </q-card-section>
-        <q-separator />
-        <q-card-actions>
-          <q-btn
-            unelevated
-            rounded
-            color="primary"
-            class="btncriar"
-            label="Ver vaga"
-            to="/vervaga"
-          />
-        </q-card-actions>
-      </q-card>
+      </q-card>--->
     </div>
   </div>
 </template>
@@ -91,19 +91,16 @@
 .container {
   width: 1126px !important;
 }
-
 .menina {
   width: 9%;
   margin: 24px 0 -62px;
 }
-
 .card {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   margin: 35px auto;
 }
-
 .card1 {
   background: #1976d2;
   color: #fff;
@@ -113,17 +110,14 @@
   justify-content: space-evenly;
   margin: 40px auto;
 }
-
 .titulo {
   color: rgb(25, 118, 210);
   font-weight: bold;
 }
-
 .btncriar {
   margin: 12px auto;
   width: 100%;
 }
-
 .my-card {
   width: 100%;
   max-width: 250px;
@@ -149,7 +143,6 @@ h6{
     margin: 40px 0 40px 40px;
   }
 }
-
 @media screen and (max-width: 360px) {
   .card1{
     display: flex;
@@ -163,12 +156,20 @@ h6{
 }
 </style>
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
-  data() {
-    return {
-      lorem:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    };
+  name: "PageVagas",
+
+  methods: {
+    ...mapActions('mainstore', ['obterCadastrovaga']),
+  },
+  computed: {
+    ...mapGetters('mainstore', ['Cadastrovaga'])
+  },
+ 
+  created () {
+    this.obterCadastrovaga()
   }
 };
 </script>

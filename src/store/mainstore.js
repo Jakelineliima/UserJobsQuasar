@@ -13,12 +13,20 @@ const mutations = {
     state.token = token
   },
   
+  //VAGA
   ADICIONAR_VAGA (state, Cadastrovaga) {
     state.Cadastrovaga.push(Cadastrovaga)
   },
+  SET_CADASTROVAGA(state, Cadastrovaga) {
+    state.Cadastrovaga = Cadastrovaga
+  },
+
+  //CURRICUlO
   ADICIONAR_CURRICULO (state, Curriculo) {
     state.Curriculocad.push(Curriculo)
   },
+
+  //CONTA
   ADICIONAR_CONTA(state, Conta) {
     state.Contacriar.push(Conta)
   }
@@ -51,6 +59,8 @@ const actions = {
       return response
     })    
   },
+
+  //VAGA
   adicionarVaga ({ commit }, cadastrarvaga) {
     api.post('/cadastrarvaga', cadastrarvaga)
     .then((response) => {
@@ -58,6 +68,15 @@ const actions = {
       Notify.create({ color: 'positive', position: 'top', message: 'Sua Vaga foi cadastrada com sucesso'})  
     })
   },
+  obterCadastrovaga({ commit }) {
+    api.get('/vagas')
+      .then((response) => {
+        commit('SET_CADASTROVAGA', response.data)
+    })
+  },
+
+
+  //CURRICULO
   adicionarCurriculo ({ commit }, Curriculo) {
     api.post('/interessado', Curriculo)
       .then((response) => {
@@ -65,6 +84,8 @@ const actions = {
         Notify.create({color: 'positive', position: 'top', message: 'Seu curriculo foi enviado com sucesso.'})
     })
   },
+
+  //CONTA
   adicionarConta ({ commit }, Conta) {
     api.post('/criarconta', Conta)
       .then((response) => {
@@ -76,7 +97,7 @@ const actions = {
 
 const getters = {
   token: (state) => state.token,
-  cadastrarvaga: (state) => state.cadastrarvaga,
+  Cadastrovaga: (state) => state.Cadastrovaga,
   Curriculocad: (state) => state.Curriculocad,
   Contacriar: (state) => state.Contacriar
 

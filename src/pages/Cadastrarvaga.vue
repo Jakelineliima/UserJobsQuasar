@@ -129,7 +129,6 @@
 .inputs{
   width: 300px;
   text-align: center;
-
 }
 .btndrop{
   width: 100%;
@@ -148,7 +147,6 @@
 </style>
 <script>
 import { mapActions } from "vuex";
-
 export default {
   data() {
     return {

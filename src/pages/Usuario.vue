@@ -22,7 +22,7 @@
           label="Configurações"
         >
           <q-list>
-            <q-item clickable v-close-popup @click="onItemClick">
+            <q-item clickable v-close-popup >
               <q-item-section avatar>
                 <q-avatar icon="edit" color="primary" text-color="white" />
               </q-item-section>
