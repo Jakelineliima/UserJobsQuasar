@@ -9,7 +9,7 @@
         <img class="menina" src="../assets/imagem/vagas.png" />
       </div>
     </div>
-    <div class="card">
+    <div class="card cards" >
       <q-card flat bordered class="my-card bg-grey-1" v-for="cadastrarvaga in Cadastrovaga" :key="cadastrarvaga.id">
         <q-card-section>
           <div class="row items-center no-wrap">
@@ -19,7 +19,7 @@
               </div>
               <div class="text-subtitle2">{{cadastrarvaga.cargo}}</div>
               <div>{{ cadastrarvaga.endereco }}</div>
-              <p>Horário: 12:00 as 18:00</p>
+              
             </div>
           </div>
         </q-card-section>
@@ -31,59 +31,13 @@
             color="primary"
             class="btncriar"
             label="Ver vaga"
+            @click="ver(cadastrarvaga.id)"
           />
         </q-card-actions>
       </q-card>
-      <!---<q-card flat bordered class="my-card bg-grey-1">
-        <q-card-section>
-          <div class="row items-center no-wrap">
-            <div class="col">
-              <div class="text-subtitle2 titulo">
-                Coordenador administrativo agrícola
-              </div>
-              <div class="text-subtitle2">Agrivitta - Agrotoxicos</div>
-              <div>CENTRO - ITÁPOLIS - SP</div>
-              <p>Horário: 12:00 as 18:00</p>
-            </div>
-          </div>
-        </q-card-section>
-        <q-separator />
-        <q-card-actions>
-          <q-btn
-            unelevated
-            rounded
-            color="primary"
-            class="btncriar"
-            label="Ver vaga"
-            to="/vervaga"
-          />
-        </q-card-actions>
-      </q-card>
-      <q-card flat bordered class="my-card bg-grey-1">
-        <q-card-section>
-          <div class="row items-center no-wrap">
-            <div class="col">
-              <div class="text-subtitle2 titulo">
-                Coordenador administrativo agrícola
-              </div>
-              <div class="text-subtitle2">Agrivitta - Agrotoxicos</div>
-              <div>CENTRO - ITÁPOLIS - SP</div>
-              <p>Horário: 12:00 as 18:00</p>
-            </div>
-          </div>
-        </q-card-section>
-        <q-separator />
-        <q-card-actions>
-          <q-btn
-            unelevated
-            rounded
-            color="primary"
-            class="btncriar"
-            label="Ver vaga"
-            to="/vervaga"
-          />
-        </q-card-actions>
-      </q-card>--->
+
+       
+      
     </div>
   </div>
 </template>
@@ -99,7 +53,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 35px auto;
+  margin: 35px 25px;
 }
 .card1 {
   background: #1976d2;
@@ -109,6 +63,10 @@
   flex-direction: row;
   justify-content: space-evenly;
   margin: 40px auto;
+}
+.cards{
+  flex-wrap: wrap;
+  margin: 35px 35px;
 }
 .titulo {
   color: rgb(25, 118, 210);
@@ -121,6 +79,7 @@
 .my-card {
   width: 100%;
   max-width: 250px;
+  margin: 9px 17px 46px auto;
 }
 h6{
   margin-left: 22px;
