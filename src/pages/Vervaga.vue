@@ -2,20 +2,20 @@
   <div class="q-pa-md cont">
     <div>
       <div class="col">
-        <q-text class="text-h6 text-primary">Coodernador administrativo</q-text>
+        <q-text class="text-h6 text-primary"> {{ vagaSelecionado.nome }}</q-text>
         <br />
-        <q-text class="text-h6">Agrivitta</q-text>
+        <q-text class="text-h6">{{vagaSelecionado.cargo}}</q-text>
         <p class="text-weight-light">
-          Avenida Palmas N°445 Centro - ITÁPOLIS-SP
+          {{vagaSelecionado.endereco}}
         </p>
-        <p class="text-subtitle2">Numero de contato:</p>
+        <p class="text-subtitle2"> {{ vagaSelecionado.telefone }}</p>
       </div>
       <div class="">
         <q-text class="text-h6 text-primary">Sobre essa vaga</q-text>
         <div class="row justify-around cardsobre">
-          <q-text class="text-subtitle2">Precisa ter experiencia - Sim</q-text>
+          <q-text class="text-subtitle2">Precisa ter experiencia - {{vagaSelecionado.experiencia}}</q-text>
           <q-text class="text-subtitle2 txt"
-            >Nivel de escolaridade - Ensino Superior incompleto</q-text
+            >Nivel de escolaridade -  {{vagaSelecionado.escolaridade}}</q-text
           >
         </div>
         <!---
@@ -38,6 +38,7 @@
             color="primary"
             class="btn"
             label="Voltar"
+            to="/vagas"
           />
            <q-btn
             unelevated
@@ -81,3 +82,19 @@
   }
 }
 </style>
+<script>
+import {  mapGetters } from "vuex";
+
+export default {
+  name: "PageVervagas",
+
+
+  computed: {
+    ...mapGetters('mainstore', ['vagaSelecionado'])
+  },
+
+  created() {
+    this.obterCadastrovaga();
+  }
+};
+</script>

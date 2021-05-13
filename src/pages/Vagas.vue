@@ -9,17 +9,22 @@
         <img class="menina" src="../assets/imagem/vagas.png" />
       </div>
     </div>
-    <div class="card cards" >
-      <q-card flat bordered class="my-card bg-grey-1" v-for="cadastrarvaga in Cadastrovaga" :key="cadastrarvaga.id">
+    <div class="card cards">
+      <q-card
+        flat
+        bordered
+        class="my-card bg-grey-1"
+        v-for="cadastrarvaga in Cadastrovaga"
+        :key="cadastrarvaga.id"
+      >
         <q-card-section>
           <div class="row items-center no-wrap">
             <div class="col">
               <div class="text-subtitle2 titulo">
-                {{ cadastrarvaga.nome }}
+                {{ cadastrarvaga.cargo }}
               </div>
-              <div class="text-subtitle2">{{cadastrarvaga.cargo}}</div>
+              <div class="text-subtitle2">{{ cadastrarvaga.nome }}</div>
               <div>{{ cadastrarvaga.endereco }}</div>
-              
             </div>
           </div>
         </q-card-section>
@@ -35,9 +40,6 @@
           />
         </q-card-actions>
       </q-card>
-
-       
-      
     </div>
   </div>
 </template>
@@ -107,7 +109,7 @@ h6{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -41px; 
+    margin-top: -41px;
   }
   h6{
     margin-left: 22px;
@@ -121,14 +123,19 @@ export default {
   name: "PageVagas",
 
   methods: {
-    ...mapActions('mainstore', ['obterCadastrovaga']),
+    ...mapActions('mainstore', ['obterCadastrovaga', 'selecionarVaga']),
+
+    ver(CadastrovagaId) {
+      this.selecionarVaga(CadastrovagaId);
+      this.$router.push('/vervaga');
+    }
   },
   computed: {
     ...mapGetters('mainstore', ['Cadastrovaga'])
   },
- 
-  created () {
-    this.obterCadastrovaga()
+
+  created() {
+    this.obterCadastrovaga();
   }
 };
 </script>

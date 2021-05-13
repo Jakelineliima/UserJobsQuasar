@@ -5,7 +5,8 @@ const state = {
   token: '',
   Cadastrovaga: [],
   Curriculocad: [],
-  Contacriar: []
+  Contacriar: [],
+  vagaSelecionado: ''
 }
 
 const mutations = {
@@ -20,6 +21,16 @@ const mutations = {
   SET_CADASTROVAGA(state, Cadastrovaga) {
     state.Cadastrovaga = Cadastrovaga
   },
+  SELECIONAR_VAGA(state, CadastrovagaId) {
+    const index = state.Cadastrovaga.findIndex((p) => p.id === CadastrovagaId)
+    state.vagaSelecionado = state.Cadastrovaga[index]
+  },
+  /*
+  VER_VAGA(state, Cadastrovaga) {
+    const index = state.Cadastrovaga.findIndex((p) => p.id === Cadastrovaga.id)
+    state.Cadastrovaga.set(index, Cadastrovaga)
+  },*/
+ 
 
   //CURRICUlO
   ADICIONAR_CURRICULO (state, Curriculo) {
@@ -74,6 +85,16 @@ const actions = {
         commit('SET_CADASTROVAGA', response.data)
     })
   },
+  selecionarVaga({ commit }, CadastrovagaId) {
+    commit('SELECIONAR_VAGA', CadastrovagaId)
+  },
+ /* verVaga({ commit }, Cadastrovaga) {
+    api.put('/vervagas/' + Cadastrovaga.id, Cadastrarvaga)
+    .then((response) => {
+      commit('VER_VAGA', response.data)
+    })
+  },*/
+  
 
 
   //CURRICULO
@@ -99,7 +120,8 @@ const getters = {
   token: (state) => state.token,
   Cadastrovaga: (state) => state.Cadastrovaga,
   Curriculocad: (state) => state.Curriculocad,
-  Contacriar: (state) => state.Contacriar
+  Contacriar: (state) => state.Contacriar,
+  vagaSelecionado: (state) => state.vagaSelecionado
 
 }
 
