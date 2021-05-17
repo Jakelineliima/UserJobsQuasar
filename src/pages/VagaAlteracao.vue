@@ -5,13 +5,13 @@
         Cadastre sua vaga
       </h6>
       <p class="text-subtitle1">
-        Encontrar o seu funcionario é muito mais simples do que você imagina.
+        Bem vindo a pagina de alteração
       </p>
       <q-img src="../assets/imagem/imagecadastrar.png" class="img" />
     </div>
     <div class="inputs">
       <h6 class="text-primary" style="margin-bottom: 1em">
-        Dados da vaga
+        Edite os dados da vaga
       </h6>
       <q-input
         outlined
@@ -19,7 +19,7 @@
         rounded-radios
         color="deep-primary"
         class="bg-white"
-        v-model="nome"
+        v-model="vagaSelecionado.nome"
         type="text"
         label="Nome da empresa"
         :rules="[val => (val && val.length > 0) || 'Nome obrigatório']"
@@ -35,7 +35,7 @@
         rounded-radios
         color="deep-primary"
         class="bg-white phone"
-        v-model="telefone"
+        v-model.number="vagaSelecionado.telefone"
         mask="(##) #####-####"
         type="text"
         label="Telefone"
@@ -55,7 +55,7 @@
         rounded-radios
         color="deep-primary"
         class="bg-white"
-        v-model="endereco"
+        v-model="vagaSelecionado.endereco"
         type="text"
         label="Endereço"
         :rules="[val => (val && val.length > 0) || 'Endereço obrigatório']"
@@ -69,7 +69,7 @@
         outlined
         clearable
         rounded-radios
-        v-model="escolaridade"
+        v-model="vagaSelecionado.escolaridade"
         :options="options"
         label="Escolaridade"
         class="btndrop"
@@ -86,7 +86,7 @@
         rounded-radios
         color="deep-primary"
         class="bg-white"
-        v-model="cargo"
+        v-model="vagaSelecionado.cargo"
         type="text"
         label="Cargo"
         :rules="[val => (val && val.length > 0) || 'Digite o cargo predentido']"
@@ -100,7 +100,7 @@
         outlined
         clearable
         rounded-radios
-        v-model="experiencia"
+        v-model="vagaSelecionado.experiencia"
         :options="exp"
         label="Experiencia"
         class="btndrop"
@@ -112,7 +112,7 @@
       </q-select>
 
       <q-btn
-        @click="cadastrarVaga()"
+        @click="alterar()"
         unelevated
         rounded
         color="primary"
@@ -146,16 +146,16 @@
 }
 </style>
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      nome: '',
-      telefone: '',
-      endereco: '',
-      cargo: '',
-      escolaridade: '',
-      experiencia: '',
+      nome: "",
+      telefone: "",
+      endereco: "",
+      cargo: "",
+      escolaridade: "",
+      experiencia: "",
       resposta: true,
       options: [
         "Ensino fundamental completo",
@@ -170,17 +170,14 @@ export default {
     };
   },
   methods: {
-    ...mapActions("mainstore", ["adicionarVaga"]),
-    async cadastrarVaga() {
-      await this.adicionarVaga({
-        nome: this.nome,
-        telefone: this.telefone,
-        endereco: this.endereco,
-        cargo: this.cargo,
-        escolaridade: this.escolaridade,
-        experiencia: this.experiencia
-      });
+    ...mapActions('mainstore', ['alterarVaga']),
+    async alterar() {
+      await this.alterarVaga(this.vagaSelecionado);
+      this.$router.push('/usuariolog');
     }
+  },
+  computed: {
+    ...mapGetters('mainstore', ['vagaSelecionado'])
   }
 };
 </script>

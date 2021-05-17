@@ -14,17 +14,17 @@
         flat
         bordered
         class="my-card bg-grey-1"
-        v-for="cadastrarvaga in Cadastrovaga"
-        :key="cadastrarvaga.id"
+        v-for="verVaga in Cadastrovaga"
+        :key="verVaga.id"
       >
         <q-card-section>
           <div class="row items-center no-wrap">
             <div class="col">
               <div class="text-subtitle2 titulo">
-                {{ cadastrarvaga.cargo }}
+                {{ verVaga.cargo }}
               </div>
-              <div class="text-subtitle2">{{ cadastrarvaga.nome }}</div>
-              <div>{{ cadastrarvaga.endereco }}</div>
+              <div class="text-subtitle2">{{ verVaga.nome }}</div>
+              <div>{{ verVaga.endereco }}</div>
             </div>
           </div>
         </q-card-section>
@@ -36,7 +36,7 @@
             color="primary"
             class="btncriar"
             label="Ver vaga"
-            @click="ver(cadastrarvaga.id)"
+            @click="ver(verVaga.id)"
           />
         </q-card-actions>
       </q-card>
@@ -123,10 +123,10 @@ export default {
   name: "PageVagas",
 
   methods: {
-    ...mapActions('mainstore', ['obterCadastrovaga', 'selecionarVaga']),
+    ...mapActions('mainstore', ['obterCadastrovaga', 'verVaga']),
 
     ver(CadastrovagaId) {
-      this.selecionarVaga(CadastrovagaId);
+      this.verVaga(CadastrovagaId);
       this.$router.push('/vervaga');
     }
   },

@@ -2,20 +2,20 @@
   <div class="q-pa-md cont">
     <div>
       <div class="col">
-        <q-text class="text-h6 text-primary"> {{ vagaSelecionado.nome }}</q-text>
+        <q-text class="text-h6 text-primary"> {{ verVaga.nome }}</q-text>
         <br />
-        <q-text class="text-h6">{{vagaSelecionado.cargo}}</q-text>
+        <q-text class="text-h6">{{verVaga.cargo}}</q-text>
         <p class="text-weight-light">
-          {{vagaSelecionado.endereco}}
+          {{verVaga.endereco}}
         </p>
-        <p class="text-subtitle2"> {{ vagaSelecionado.telefone }}</p>
+        <p class="text-subtitle2"> {{ verVaga.telefone }}</p>
       </div>
       <div class="">
         <q-text class="text-h6 text-primary">Sobre essa vaga</q-text>
         <div class="row justify-around cardsobre">
-          <q-text class="text-subtitle2">Precisa ter experiencia - {{vagaSelecionado.experiencia}}</q-text>
+          <q-text class="text-subtitle2">Precisa ter experiencia - {{verVaga.experiencia}}</q-text>
           <q-text class="text-subtitle2 txt"
-            >Nivel de escolaridade -  {{vagaSelecionado.escolaridade}}</q-text
+            >Nivel de escolaridade -  {{verVaga.escolaridade}}</q-text
           >
         </div>
         <!---
@@ -90,7 +90,7 @@ export default {
 
 
   computed: {
-    ...mapGetters('mainstore', ['vagaSelecionado'])
+    ...mapGetters('mainstore', ['verVaga'])
   },
 
   created() {
