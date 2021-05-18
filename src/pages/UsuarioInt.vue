@@ -1,16 +1,15 @@
 <template>
   <q-page>
-    <q-card class="my-card">
+    <q-card class="my-card" v-for="curriculo in Curriculocad" :key="curriculo.id">
       <q-card-section>
         <div class="text-h6 text-primary" style="margin-bottom: 1em">
-          Ester Nundes Line
+         {{ curriculo.nome }}
         </div>
         <p>
-          <strong>Endereço : </strong> Rua Jose Tutyli N° 120 Jardim Paumas
-          Itápolis
+          <strong>Endereço : </strong>{{ curriculo.endereco }}
         </p>
-        <p><strong>Escolaridade : </strong> Ensino Superior incompleto</p>
-        <p><strong>Telefone : </strong> 16 996789685</p>
+        <p><strong>Escolaridade : </strong> {{ curriculo.escolaridade}}</p>
+        <p><strong>Telefone : </strong> {{ curriculo.telefone }}</p>
       </q-card-section>
 
       <div class="q-pa-md">
@@ -47,7 +46,7 @@
 
     <q-separator class="hr" />
 
-    <h6 class="titulo">Suas vagas</h6>
+    <h6 class="titulo">Vagas que você envio curriculo</h6>
     <div class="cards">
       <div v-for="cadastrarvaga in Cadastrovaga" :key="cadastrarvaga.id">
         <q-card class="my-card bg-grey-4  text-dark cardcurriculo">
@@ -62,23 +61,7 @@
           </q-card-section>
           <q-card-actions>
             <q-separator />
-          <q-btn
-            unelevated
-            rounded
-            color="primary"
-            class="btncriar"
-            label="Editar"
-            @click="alterar(cadastrarvaga.id)"
-          />
-          <q-btn
-            unelevated
-            rounded
-            color="red"
-            class="btncriar"
-            label="Excluir"
-            @click="remover(cadastrarvaga.id)"
-  
-          />
+          
         </q-card-actions>
         
         </q-card>
@@ -125,41 +108,18 @@
 import { mapActions, mapGetters } from "vuex";
 
 export default {
-  name: "PageUsuariolog",
-
+  name: "PageUsuarioint",
   methods: {
-    ...mapActions('mainstore', ['obterCadastrovaga', 'selecionarVaga','removerVaga']),
+    ...mapActions('mainstore', ['obterCurriculo', 'selecionarCurriculo','obterCadastrovaga','selecionarVaga']),
 
-    alterar (CadastrovagaId){
-      this.selecionarVaga(CadastrovagaId)
-      this.$router.push('/vagaalteracao')
-    },
-    remover (CadastrovagaId) {
-      this.$q.dialog({
-        title: 'Confirm',
-        message: 'Deseja excluir a vaga ?',
-        cancel: {
-          label: 'Cancelar'
-        },
-        ok: {
-          label: 'OK'
-        },
-        persistent: true
-      }).onOk(() => {
-        this.selecionarVaga(CadastrovagaId)
-        this.removerVaga(CadastrovagaId)
-        Notify.create({ color: 'positive', position: 'top', message: 'Produto Excluído!'})
-      }).onCancel(() => {
-        
-      })
-    }
   },
   computed: {
-    ...mapGetters('mainstore', ['Cadastrovaga'])
+    ...mapGetters('mainstore', ['Curriculocad', 'Cadastrovaga'])
   },
 
   created() {
-    this.obterCadastrovaga();
+    this.obterCurriculo(),
+    this.obterCadastrovaga()
   }
 };
 </script>

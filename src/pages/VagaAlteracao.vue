@@ -148,14 +148,15 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 export default {
+  name: 'PageVagaAlteracao',
   data() {
     return {
-      nome: "",
-      telefone: "",
-      endereco: "",
-      cargo: "",
-      escolaridade: "",
-      experiencia: "",
+      nome: '',
+      telefone: '',
+      endereco: '',
+      cargo: '',
+      escolaridade:'',
+      experiencia:'',
       resposta: true,
       options: [
         "Ensino fundamental completo",

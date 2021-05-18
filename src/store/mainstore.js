@@ -2,12 +2,14 @@ import { LocalStorage, Notify } from "quasar";
 import { api } from "boot/axios";
 
 const state = {
-  token: '',
+  token: "",
   Cadastrovaga: [],
   Curriculocad: [],
   Contacriar: [],
-  vagaSelecionado: '',
-  verVaga: ''
+  vagaSelecionado: "",
+  verVaga: "",
+  verCurriculo: "",
+  curriculoSelecionado: ""
 };
 
 const mutations = {
@@ -22,22 +24,46 @@ const mutations = {
   SET_CADASTROVAGA(state, Cadastrovaga) {
     state.Cadastrovaga = Cadastrovaga;
   },
-  SELECIONAR_VAGA(state, CadastrovagaId) {
-    const index = state.Cadastrovaga.findIndex(p => p.id === CadastrovagaId);
-    state.vagaSelecionado = state.Cadastrovaga[index];
-  },
   VER_VAGA(state, CadastrovagaId) {
-    const index = state.Cadastrovaga.findIndex(p => p.id === CadastrovagaId);
+    const index = state.Cadastrovaga.findIndex((p) => p.id === CadastrovagaId);
     state.verVaga = state.Cadastrovaga[index];
   },
-  ALTERAR_VAGA(state, Cadastrovaga) {
-    const index = state.Cadastrovaga.findIndex(p => p.id === Cadastrovaga.id);
-    state.Cadastrovaga.set(index, Cadastrovaga);
+  SELECIONAR_VAGA(state, CadastrovagaId) {
+    const index = state.Cadastrovaga.findIndex((p) => p.id === CadastrovagaId);
+    state.vagaSelecionado = state.Cadastrovaga[index];
+  },
+  ALTERAR_VAGA(state, cadastrovaga) {
+    const index = state.Cadastrovaga.findIndex((p) => p.id === cadastrovaga.id);
+    state.Cadastrovaga.set(index, cadastrovaga);
+  },
+  REMOVER_VAGA (state, CadastrovagaId) {
+    const index = state.Cadastrovaga.findIndex((p) => p.id === CadastrovagaId)
+    state.Cadastrovaga.splice(index, 1);
   },
 
   //CURRICUlO
   ADICIONAR_CURRICULO(state, Curriculo) {
     state.Curriculocad.push(Curriculo);
+  },
+  SET_CURRICULO(state, Curriculocad) {
+    state.Curriculocad = Curriculocad;
+  },
+  VER_CURRICULO(state, CurriculoId) {
+    const index = state.Curriculocad.findIndex((p) => p.id === CurriculoId);
+    state.verCurriculo = state.Curriculocad[index];
+  },
+  SELECIONAR_CURRICULO(state, CurriculoId) {
+    const index = state.Curriculocad.findIndex((p) => p.id === CurriculoId);
+    state.curriculoSelecionado = state.Curriculocad[index];
+  },
+  ALTERAR_CURRICULO(state, curriculo) {
+    const index = state.Curriculocad.findIndex(p => p.id === curriculo.id);
+    state.Curriculocad.set(index, curriculo);
+  },
+  REMOVER_CURRICULO(state, CurriculoId) {
+    const index = state.Curriculocad
+      .findIndex((p) => p.id === CurriculoId);
+    state.Curriculocad.splice(index, 1);
   },
 
   //CONTA
@@ -103,18 +129,16 @@ const actions = {
     commit("SELECIONAR_VAGA", CadastrovagaId);
   },
   alterarVaga({ commit }, cadastrarvaga) {
-    api.put('/cadastrarvaga/' + cadastrarvaga.id, cadastrarvaga)
-      .then(response => {
-        commit("ALTERAR_VAGA", response.data);
-      });
+    api.put("/usuariolog/" + cadastrarvaga.id, cadastrarvaga).then(response => {
+      commit("ALTERAR_VAGA", response.data);
+    });
   },
-
-  /* verVaga({ commit }, Cadastrovaga) {
-    api.put('/vervagas/' + Cadastrovaga.id, Cadastrarvaga)
+  removerVaga({ commit }, CadastrovagaId) {
+    api.delete('/usuariolog' + CadastrovagaId)
     .then((response) => {
-      commit('VER_VAGA', response.data)
-    })
-  },*/
+      commit('REMOVER_VAGA', response.data);
+    });
+  },
 
   //CURRICULO
   adicionarCurriculo({ commit }, Curriculo) {
@@ -125,6 +149,30 @@ const actions = {
         position: "top",
         message: "Seu curriculo foi enviado com sucesso."
       });
+    });
+  },
+
+  obterCurriculo({ commit }) {
+    api.get("/interessado").then(response => {
+      commit("SET_CURRICULO", response.data);
+    });
+  },
+  verCurriculo({ commit }, CurriculoId) {
+    commit("VER_CURRICULO", CurriculoId);
+  },
+  selecionarCurriculo({ commit }, CurriculoId) {
+    commit("SELECIONAR_CURRICULO", CurriculoId);
+  },
+  alterarCurriculo({ commit }, curriculo) {
+    api.put("/usuarioint/" + curriculo.id, curriculo)
+      .then((response) => {
+      commit("ALTERAR_CURRICULO", response.data);
+    });
+  },
+  removerCurriculo({ commit }, CurriculoId) {
+    api.delete('/usuarioint/' + CurriculoId)
+      .then((response) => {
+      commit("REMOVER_VAGA", response.data);
     });
   },
 
@@ -147,7 +195,9 @@ const getters = {
   Curriculocad: state => state.Curriculocad,
   Contacriar: state => state.Contacriar,
   vagaSelecionado: state => state.vagaSelecionado,
-  verVaga: state => state.verVaga
+  verVaga: state => state.verVaga,
+  verCurriculo: state => state.verCurriculo,
+  curriculoSelecionado: state => state.curriculoSelecionado
 };
 
 export default {

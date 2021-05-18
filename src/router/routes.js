@@ -42,8 +42,18 @@ const routes = [
   {
     path: "/vagaalteracao",
     component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/VagaAlteracao.vue") }]
+  },
+  {
+    path: "/usuarioint",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/UsuarioInt.vue") }]
+  },
+  {
+    path: "/userdados",
+    component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: "", component: () => import("pages/VagaAlteracao.vue") }
+      { path: "", component: () => import("components/Userdados.vue") }
     ]
   },
 

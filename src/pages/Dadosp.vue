@@ -3,7 +3,7 @@
     <q-card class="q-pa-md" style="width: 800px">
       <div>
         <div>
-          <p class="text-h5 titulo text-primary">Ester Nundes Line</p>
+         
           <h6 class="q-mb-xs text-primary">Dados pessoais</h6>
           <p class="q-mb-lg text-blue-grey-12">
             Mantenha seus dados sempre atualizados.
@@ -13,7 +13,7 @@
             vclearable
             rounded-radios
             class="bg-white"
-            v-model="nome"
+            v-model="curriculoSelecionado.nome"
             type="text"
             label="Seu nome completo"
             :rules="[
@@ -29,7 +29,7 @@
             vclearable
             rounded-radios
             class="bg-white"
-            v-model="email"
+            v-model="curriculoSelecionado.email"
             type="email"
             label="E-mail"
             :rules="[val => (val && val.length > 0) || 'Digite seu email']"
@@ -43,7 +43,7 @@
             vclearable
             rounded-radios
             class="bg-white"
-            v-model="endereco"
+            v-model="curriculoSelecionado.endereco"
             type="text"
             label="Endereço"
             :rules="[val => (val && val.length > 0) || 'Digite seu endereço']"
@@ -56,7 +56,7 @@
             outlined
             clearable
             rounded-radios
-            v-model="escolaridade"
+            v-model="curriculoSelecionado.escolaridade"
             :options="options"
             label="Escolaridade"
             class="btndrop"
@@ -73,7 +73,7 @@
             vclearable
             rounded-radios
             class="bg-white"
-            v-model="telefone"
+            v-model.number="curriculoSelecionado.telefone"
             type="password"
             label="Telefone"
           >
@@ -87,8 +87,8 @@
               rounded
               class="q-px-xl btn"
               label="Salvar"
-              type="submit"
               color="primary"
+              @click="alterar()"
             />
           </div>
         </div>
@@ -98,7 +98,9 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
+  name: 'Dadosp',
   data() {
     return {
       escolaridade: "",
@@ -110,9 +112,20 @@ export default {
       "Ensino medio completo",
       "Ensino superior completo",
       "Ensino superior incompleto"
-    ]
+    ],
+    exp: ["Sim", "Não"]
     };
   },
+  methods: {
+    ...mapActions('mainstore', ['alterarCurriculo']),
+    async alterar() {
+      await this.alterarCurriculo(this.curriculoSelecionado);
+      this.$router.push('/usuarioint');
+    }
+  },
+  computed: {
+    ...mapGetters('mainstore', ['curriculoSelecionado'])
+  }
   
 };
 </script>
