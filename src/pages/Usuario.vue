@@ -122,10 +122,10 @@
 }
 </style>
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: "PageUsuariolog",
+  name: 'PageUsuariolog',
 
   methods: {
     ...mapActions('mainstore', ['obterCadastrovaga', 'selecionarVaga','removerVaga']),
@@ -136,8 +136,8 @@ export default {
     },
     remover (CadastrovagaId) {
       this.$q.dialog({
-        title: 'Confirm',
-        message: 'Deseja excluir a vaga ?',
+        title: 'Confirma',
+        message: 'Tem certeza que deseja excluir o vaga?',
         cancel: {
           label: 'Cancelar'
         },
@@ -146,9 +146,8 @@ export default {
         },
         persistent: true
       }).onOk(() => {
-        this.selecionarVaga(CadastrovagaId)
         this.removerVaga(CadastrovagaId)
-        Notify.create({ color: 'positive', position: 'top', message: 'Produto Excluído!'})
+        Notify.create({ color: 'positive', position: 'top', message: 'Produto Excluído!'})  
       }).onCancel(() => {
         
       })

@@ -6,10 +6,15 @@ const state = {
   Cadastrovaga: [],
   Curriculocad: [],
   Contacriar: [],
+
   vagaSelecionado: "",
   verVaga: "",
+
   verCurriculo: "",
-  curriculoSelecionado: ""
+  curriculoSelecionado: "",
+
+  usuarioSelecionado: '',
+  verUsuario:''
 };
 
 const mutations = {
@@ -38,7 +43,7 @@ const mutations = {
   },
   REMOVER_VAGA (state, CadastrovagaId) {
     const index = state.Cadastrovaga.findIndex((p) => p.id === CadastrovagaId)
-    state.Cadastrovaga.splice(index, 1);
+    state.Cadastrovaga.splice(index, 1)
   },
 
   //CURRICUlO
@@ -57,19 +62,37 @@ const mutations = {
     state.curriculoSelecionado = state.Curriculocad[index];
   },
   ALTERAR_CURRICULO(state, curriculo) {
-    const index = state.Curriculocad.findIndex(p => p.id === curriculo.id);
+    const index = state.Curriculocad.findIndex((p) => p.id === curriculo.id);
     state.Curriculocad.set(index, curriculo);
   },
   REMOVER_CURRICULO(state, CurriculoId) {
-    const index = state.Curriculocad
-      .findIndex((p) => p.id === CurriculoId);
+    const index = state.Curriculocad.findIndex((p) => p.id === CurriculoId);
     state.Curriculocad.splice(index, 1);
   },
 
   //CONTA
-  ADICIONAR_CONTA(state, Conta) {
-    state.Contacriar.push(Conta);
-  }
+  ADICIONAR_CONTA(state, Usuario) {
+    state.Contacriar.push(Usuario);
+  },
+  SET_CONTA(state, Contacriar) {
+    state.Contacriar = Contacriar;
+  },
+  VER_CONTA(state, UsuarioId) {
+    const index = state.Contacriar.findIndex((p) => p.id === UsuarioId);
+    state.verUsuario = state.Contacriar[index];
+  },
+  SELECIONAR_CONTA(state, UsuarioId) {
+    const index = state.Contacriar.findIndex((p) => p.id === UsuarioId);
+    state.usuarioSelecionado = state.Contacriar[index];
+  },
+  ALTERAR_CONTA(state, usuario) {
+    const index = state.Contacriar.findIndex((p) => p.id === usuario.id);
+    state.Contacriar.set(index, usuario);
+  },
+  REMOVER_CONTA(state, UsuarioId) {
+    const index = state.Contacriar.findIndex((p) => p.id === UsuarioId);
+    state.Contacriar.splice(index, 1);
+  },
 };
 
 const actions = {
@@ -129,14 +152,15 @@ const actions = {
     commit("SELECIONAR_VAGA", CadastrovagaId);
   },
   alterarVaga({ commit }, cadastrarvaga) {
-    api.put("/usuariolog/" + cadastrarvaga.id, cadastrarvaga).then(response => {
+    api.put("/usuariolog/" + cadastrarvaga.id, cadastrarvaga)
+    .then(response => {
       commit("ALTERAR_VAGA", response.data);
     });
   },
   removerVaga({ commit }, CadastrovagaId) {
-    api.delete('/usuariolog' + CadastrovagaId)
+    api.delete('/usuariolog/'+ CadastrovagaId)
     .then((response) => {
-      commit('REMOVER_VAGA', response.data);
+      commit('REMOVER_VAGA', CadastrovagaId);
     });
   },
 
@@ -164,7 +188,7 @@ const actions = {
     commit("SELECIONAR_CURRICULO", CurriculoId);
   },
   alterarCurriculo({ commit }, curriculo) {
-    api.put("/usuarioint/" + curriculo.id, curriculo)
+    api.put('/usuarioint/' + curriculo.id, curriculo)
       .then((response) => {
       commit("ALTERAR_CURRICULO", response.data);
     });
@@ -172,7 +196,7 @@ const actions = {
   removerCurriculo({ commit }, CurriculoId) {
     api.delete('/usuarioint/' + CurriculoId)
       .then((response) => {
-      commit("REMOVER_VAGA", response.data);
+      commit("REMOVER_CURRICULO", CurriculoId);
     });
   },
 
@@ -186,7 +210,31 @@ const actions = {
         message: "Seu conta foi criada com sucesso."
       });
     });
-  }
+  },
+  obterUsuario({ commit }) {
+    api.get("/vagas").then(response => {
+      commit("SET_CONTA", response.data);
+    });
+  },
+  verVaga({ commit }, UsuarioId) {
+    commit("VER_CONTA", UsuarioId);
+  },
+
+  selecionarUsuario({ commit }, UsuarioId) {
+    commit("SELECIONAR_CONTA", UsuarioId);
+  },
+  alterarUsuario({ commit }, usuario) {
+    api.put("/usuariolog/" + usuario.id, usuario)
+    .then(response => {
+      commit("ALTERAR_CONTA", response.data);
+    });
+  },
+  removerUsuario({ commit }, UsuarioId) {
+    api.delete('/usuariolog/'+ UsuarioId)
+    .then((response) => {
+      commit('REMOVER_CONTA', UsuarioId);
+    });
+  },
 };
 
 const getters = {

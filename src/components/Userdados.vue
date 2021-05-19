@@ -6,7 +6,7 @@
          {{ curriculo.nome }}
         </div>
         <p>
-          <strong>Endereço : </strong>{{ curriculo.endereço }}
+          <strong>Endereçoo : </strong>{{ curriculo.endereço }}
         </p>
         <p><strong>Escolaridade : </strong> {{ curriculo.escolaridade}}</p>
         <p><strong>Telefone : </strong> {{ curriculo.telefone }}</p>
@@ -36,7 +36,7 @@
                 <q-avatar icon="delete" color="red" text-color="white" />
               </q-item-section>
               <q-item-section>
-                <q-item-label>Excluir conta</q-item-label>
+                <btn  label="Excluir" @click="remover(curriculo.id)"/>
               </q-item-section>
             </q-item>
           </q-list>
@@ -53,11 +53,29 @@ export default {
   name: 'Userdados',
 
   methods: {
-    ...mapActions('mainstore', ['obterCurriculo', 'selecionarCurriculo']),
+    ...mapActions('mainstore', ['obterCurriculo', 'selecionarCurriculo', 'removerCurriculo']),
 
     alterar (CurriculoId){
       this.selecionarCurriculo(CurriculoId)
       this.$router.push('/dadosp')
+    },
+    remover (CurriculoId) {
+      this.$q.dialog({
+        title: 'Confirma',
+        message: 'Tem certeza que deseja excluir o Curriculo?',
+        cancel: {
+          label: 'Cancelar'
+        },
+        ok: {
+          label: 'OK'
+        },
+        persistent: true
+      }).onOk(() => {
+        this.removerCurriculo(CurriculoId)
+        Notify.create({ color: 'positive', position: 'top', message: 'Curriculo Excluído!'})  
+      }).onCancel(() => {
+        
+      })
     }
   },
   computed: {

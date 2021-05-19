@@ -14,17 +14,17 @@
         flat
         bordered
         class="my-card bg-grey-1"
-        v-for="verVaga in Cadastrovaga"
-        :key="verVaga.id"
+        v-for="cadastrarvaga in Cadastrovaga"
+        :key="cadastrarvaga.id"
       >
         <q-card-section>
           <div class="row items-center no-wrap">
             <div class="col">
               <div class="text-subtitle2 titulo">
-                {{ verVaga.cargo }}
+                {{ cadastrarvaga.nome }}
               </div>
-              <div class="text-subtitle2">{{ verVaga.nome }}</div>
-              <div>{{ verVaga.endereco }}</div>
+              <div class="text-subtitle2">{{ cadastrarvaga.cargo }}</div>
+              <div>{{ cadastrarvaga.endereco }}</div>
             </div>
           </div>
         </q-card-section>
@@ -36,7 +36,7 @@
             color="primary"
             class="btncriar"
             label="Ver vaga"
-            @click="ver(verVaga.id)"
+            @click="ver(cadastrarvaga.id)"
           />
         </q-card-actions>
       </q-card>
@@ -47,16 +47,19 @@
 .container {
   width: 1126px !important;
 }
+
 .menina {
   width: 9%;
   margin: 24px 0 -62px;
 }
+
 .card {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   margin: 35px 25px;
 }
+
 .card1 {
   background: #1976d2;
   color: #fff;
@@ -66,52 +69,64 @@
   justify-content: space-evenly;
   margin: 40px auto;
 }
-.cards{
+
+.cards {
   flex-wrap: wrap;
   margin: 35px 35px;
 }
+
 .titulo {
   color: rgb(25, 118, 210);
   font-weight: bold;
 }
+
 .btncriar {
   margin: 12px auto;
   width: 100%;
 }
+
 .my-card {
   width: 100%;
   max-width: 250px;
   margin: 9px 17px 46px auto;
 }
-h6{
+
+h6 {
   margin-left: 22px;
 }
+
 @media screen and (max-width: 800px) {
-  .card{
+  .card {
     flex-direction: column;
   }
-  .my-card{
+
+  .my-card {
     margin: 17px auto;
   }
-  .card1{
-    width 100%;
+
+  .card1 {
+    width: 100%;
   }
-  .menina{
+
+  .menina {
     width: 50%;
     margin-right: 27px;
   }
-  h6{
+
+  h6 {
     margin: 40px 0 40px 40px;
   }
 }
+
 @media screen and (max-width: 360px) {
-  .card1{
+  .card1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: -41px;
   }
-  h6{
+
+  h6 {
     margin-left: 22px;
   }
 }
@@ -123,19 +138,19 @@ export default {
   name: "PageVagas",
 
   methods: {
-    ...mapActions('mainstore', ['obterCadastrovaga', 'verVaga']),
+    ...mapActions("mainstore", ["obterCadastrovaga", "verVaga",'selecionarVaga']),
 
     ver(CadastrovagaId) {
-      this.verVaga(CadastrovagaId);
-      this.$router.push('/vervaga');
-    }
+      this.selecionarVaga(CadastrovagaId);
+      this.$router.push("/vervaga");
+    },
   },
   computed: {
-    ...mapGetters('mainstore', ['Cadastrovaga'])
+    ...mapGetters("mainstore", ["Cadastrovaga"]),
   },
 
   created() {
     this.obterCadastrovaga();
-  }
+  },
 };
 </script>

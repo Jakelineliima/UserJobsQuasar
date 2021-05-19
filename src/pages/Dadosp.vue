@@ -29,7 +29,7 @@
             vclearable
             rounded-radios
             class="bg-white"
-            v-model="curriculoSelecionado.email"
+          
             type="email"
             label="E-mail"
             :rules="[val => (val && val.length > 0) || 'Digite seu email']"
@@ -74,8 +74,13 @@
             rounded-radios
             class="bg-white"
             v-model.number="curriculoSelecionado.telefone"
-            type="password"
+            type="text"
+            mask="(##) #####-####"
             label="Telefone"
+            :rules="[
+              val => (val && val.length > 0) || 'Telefone obrigatório',
+              val => val.length === 15 || 'Coloque um telefone real'
+            ]"
           >
             <template v-slot:prepend>
               <q-icon name="phone" />
@@ -103,6 +108,9 @@ export default {
   name: 'Dadosp',
   data() {
     return {
+      nome: '',
+      telefone: '',
+      endereco: '',
       escolaridade: "",
       options: [
       "Ensino fundamental completo",

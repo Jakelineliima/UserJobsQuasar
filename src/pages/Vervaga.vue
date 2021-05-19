@@ -2,35 +2,23 @@
   <div class="q-pa-md cont">
     <div>
       <div class="col">
-        <q-text class="text-h6 text-primary"> {{ verVaga.nome }}</q-text>
+        <q-text class="text-h6 text-primary"><strong>Nome da empresa: </strong>{{vagaSelecionado.nome}}</q-text>
         <br />
-        <q-text class="text-h6">{{verVaga.cargo}}</q-text>
-        <p class="text-weight-light">
-          {{verVaga.endereco}}
+        <q-text class=""><strong>Cargo: </strong>{{vagaSelecionado.cargo}}</q-text>
+        <p class=""><strong>Endereço: </strong>
+          {{vagaSelecionado.endereco}}
         </p>
-        <p class="text-subtitle2"> {{ verVaga.telefone }}</p>
+        <p class="text-subtitle"> <strong>Telefone: </strong> {{ vagaSelecionado.telefone }}</p>
       </div>
       <div class="">
         <q-text class="text-h6 text-primary">Sobre essa vaga</q-text>
         <div class="row justify-around cardsobre">
-          <q-text class="text-subtitle2">Precisa ter experiencia - {{verVaga.experiencia}}</q-text>
-          <q-text class="text-subtitle2 txt"
-            >Nivel de escolaridade -  {{verVaga.escolaridade}}</q-text
+          <q-text class="text-subtitle"><strong>Precisa ter experiencia</strong> - {{vagaSelecionado.experiencia}}</q-text>
+          <q-text class="text-subtitle txt"
+            ><strong>Nivel de escolaridade</strong> -  {{vagaSelecionado.escolaridade}}</q-text
           >
         </div>
-        <!---
-        <q-card
-          class="my-card text-dark"
-          style="width: 100%"
-        >
-          <q-card-section>
-            <div class="text-h6">Mensagem ao canditato</div>
-          </q-card-section>
 
-          <q-card-section class="q-pt-none">
-            {{ lorem }}
-          </q-card-section>
-        </q-card> --->
         <div class="row justify-around">
            <q-btn
             unelevated
@@ -90,7 +78,7 @@ export default {
 
 
   computed: {
-    ...mapGetters('mainstore', ['verVaga'])
+    ...mapGetters('mainstore', ['Cadastrovaga','vagaSelecionado'])
   },
 
   created() {
