@@ -1,7 +1,7 @@
 <template>
   <div class="sobre">
     <h6 class="text-primary" style="margin-bottom: 1em">
-      Use Jobs é uma plataforma de vagas de empregos para mão de obra
+      UseJobs é uma plataforma de vagas de empregos para mão de obra
       operacional 100% gratuita
     </h6>
     <p class="text-subtitle1">
@@ -27,7 +27,7 @@
       </li>
       <li>
         A candidatura e acompanhamento das vagas podem ser feitas através do
-        nosso site e também pelo nosso aplicativo Use Jobs.
+        nosso site e também pelo nosso aplicativo UseJobs.
       </li>
     </ul>
 

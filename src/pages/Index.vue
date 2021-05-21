@@ -4,7 +4,7 @@
       <div class="card">
         <div>
           <p class="text-h5 titulo title">
-            Conheça sua nova vida profissional na Use Jobs, temos vagas para todas as áreas.
+            Conheça sua nova vida profissional.<br> Na UseJobs temos vagas para todas as áreas.
           </p>
         </div>
         <div>
@@ -21,9 +21,9 @@
             Fique por dentro das novidades do seu setor
           </p>
           <p class="subtitilu title3">
-            Desde vagas com experiência, até pra você que está iniciando no
-            mercado de trabalho, Use Jobs oferece espaço para todos em
-            todas as areas.
+            Temos vagas com experiência, até pra você que está iniciando no
+            mercado de trabalho, UseJobs oferece espaço para todos em
+            todas as áreas.
           </p>
         </div>
         <div>

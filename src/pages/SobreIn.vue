@@ -1,10 +1,10 @@
 <template>
   <div class="sobre">
     <h6 class="text-primary" style="margin-bottom: 1em">
-      Use Jobs is a job vacancy platform for 100% free operational labor.
+      UseJobs is a job vacancy platform for 100% free operational labor.
     </h6>
     <p class="text-subtitle1">
-      Our proposal is to promote a meeting between the best professionals with
+      Our proposal is to promote a meeting between the best professionals and
       the most relevant vacancies in the market, contributing to greater
       professional satisfaction
     </p>
@@ -21,12 +21,11 @@
       </li>
       <li>
         We prioritize vacancies close to the candidate's home, ensuring greater
-        quality of life and other benefits to make the routine more and more
-        optimized practice.
+        quality of life and other benefits to make the routine more and more practical and optimized.
       </li>
       <li>
         Application and monitoring of vacancies can be made through our website
-        and also through our Use Jobs application.
+        and also through our UseJobs mobile app.
       </li>
     </ul>
 
