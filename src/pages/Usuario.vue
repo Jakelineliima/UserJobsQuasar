@@ -3,10 +3,10 @@
     <q-card class="my-card">
       <q-card-section>
         <div class="text-h6 text-primary" style="margin-bottom: 1em">
-          Ester Nundes Line
+          Ester Nundes Lima
         </div>
         <p>
-          <strong>Endereço : </strong> Rua Jose Tutyli N° 120 Jardim Paumas
+          <strong>Endereço : </strong> Rua José Tomás N° 120 Jardim Paulista
           Itápolis
         </p>
         <p><strong>Escolaridade : </strong> Ensino Superior incompleto</p>
@@ -119,6 +119,10 @@
 }
 .my-card {
   padding: 12px;
+}
+.btncriar{
+  width: 50%;
+  flex: 1;
 }
 </style>
 <script>

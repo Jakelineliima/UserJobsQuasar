@@ -5,7 +5,7 @@
         Cadastre sua vaga
       </h6>
       <p class="text-subtitle1">
-        Encontrar o seu funcionario é muito mais simples do que você imagina.
+        Encontrar o seu funcionário é muito mais simples do que você imagina.
       </p>
       <q-img src="../assets/imagem/imagecadastrar.png" class="img" />
     </div>
@@ -40,7 +40,7 @@
         type="text"
         label="Telefone"
         :rules="[
-          val => (val && val.length > 0) || 'Telefone obrigatório',
+          val => (val && val.length > 0) || 'Telefone é obrigatório',
           val => val.length === 15 || 'Coloque um telefone real'
         ]"
       >
@@ -58,7 +58,7 @@
         v-model="endereco"
         type="text"
         label="Endereço"
-        :rules="[val => (val && val.length > 0) || 'Endereço obrigatório']"
+        :rules="[val => (val && val.length > 0) || 'Endereço é obrigatório']"
       >
         <template v-slot:prepend>
           <q-icon name="home" />
@@ -73,7 +73,7 @@
         :options="options"
         label="Escolaridade"
         class="btndrop"
-        :rules="[val => (val && val.length > 0) || 'Selecione o nivel escolar']"
+        :rules="[val => (val && val.length > 0) || 'Selecione o nível escolar']"
       >
         <template v-slot:prepend>
           <q-icon name="school" />
@@ -89,7 +89,7 @@
         v-model="cargo"
         type="text"
         label="Cargo"
-        :rules="[val => (val && val.length > 0) || 'Digite o cargo predentido']"
+        :rules="[val => (val && val.length > 0) || 'Digite o cargo pretendido']"
       >
         <template v-slot:prepend>
           <q-icon name="badge" />
@@ -104,7 +104,7 @@
         :options="exp"
         label="Experiencia"
         class="btndrop"
-        :rules="[val => (val && val.length > 0) || 'Selecione a experiencia']"
+        :rules="[val => (val && val.length > 0) || 'Selecione a experiência']"
       >
         <template v-slot:prepend>
           <q-icon name="work" />
@@ -160,9 +160,9 @@ export default {
       options: [
         "Ensino fundamental completo",
         "Ensino fundamental incompleto",
-        "Ensino medio completo",
-        "Ensino medio incompleto",
-        "Ensino medio completo",
+        "Ensino médio completo",
+        "Ensino médio incompleto",
+        "Ensino médio completo",
         "Ensino superior completo",
         "Ensino superior incompleto"
       ],

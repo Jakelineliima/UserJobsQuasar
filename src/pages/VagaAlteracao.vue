@@ -22,7 +22,7 @@
         v-model="vagaSelecionado.nome"
         type="text"
         label="Nome da empresa"
-        :rules="[val => (val && val.length > 0) || 'Nome obrigatório']"
+        :rules="[val => (val && val.length > 0) || 'Nome é obrigatório']"
       >
         <template v-slot:prepend>
           <q-icon name="person" />
@@ -40,7 +40,7 @@
         type="text"
         label="Telefone"
         :rules="[
-          val => (val && val.length > 0) || 'Telefone obrigatório',
+          val => (val && val.length > 0) || 'Telefone é obrigatório',
           val => val.length === 15 || 'Coloque um telefone real'
         ]"
       >
@@ -58,7 +58,7 @@
         v-model="vagaSelecionado.endereco"
         type="text"
         label="Endereço"
-        :rules="[val => (val && val.length > 0) || 'Endereço obrigatório']"
+        :rules="[val => (val && val.length > 0) || 'Endereço é obrigatório']"
       >
         <template v-slot:prepend>
           <q-icon name="home" />
@@ -73,7 +73,7 @@
         :options="options"
         label="Escolaridade"
         class="btndrop"
-        :rules="[val => (val && val.length > 0) || 'Selecione o nivel escolar']"
+        :rules="[val => (val && val.length > 0) || 'Selecione o nível escolar']"
       >
         <template v-slot:prepend>
           <q-icon name="school" />
@@ -161,9 +161,9 @@ export default {
       options: [
         "Ensino fundamental completo",
         "Ensino fundamental incompleto",
-        "Ensino medio completo",
-        "Ensino medio incompleto",
-        "Ensino medio completo",
+        "Ensino médio completo",
+        "Ensino médio incompleto",
+        "Ensino médio completo",
         "Ensino superior completo",
         "Ensino superior incompleto"
       ],

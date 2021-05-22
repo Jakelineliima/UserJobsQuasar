@@ -2,12 +2,12 @@
   <q-page padding class="row justify-around">
     <div style="padding: 0 auto" class="int">
       <h6 style="margin-bottom: 1em" class="text-primary">
-        Envie seu curriculo
+        Envie seu currículo
       </h6>
       <p style="margin-top: 0">
         Envie seu
         <a href="#" style="text-decoration: none" class="text-primary"
-          >curriculo</a
+          >currículo</a
         >
         para a empresa analisar. <br />Boa Sorte !
       </p>
@@ -44,7 +44,7 @@
           color="primary"
           label="Endereco"
           class="col-md-12 col-sm-12 col-xs-12"
-          :rules="[val => (val && val.length > 0) || 'Endereco obrigatório']"
+          :rules="[val => (val && val.length > 0) || 'Endereco é obrigatório']"
         >
           <template v-slot:prepend>
             <q-icon name="home" />
@@ -60,7 +60,7 @@
           unmasked-value
           class="col-md-12 col-sm-12 col-xs-12"
           :rules="[
-            val => (val && val.length > 0) || 'Telefone obrigatório',
+            val => (val && val.length > 0) || 'Telefone é obrigatório',
             val => val.length === 11 || 'Coloque um telefone real'
           ]"
         >
@@ -74,7 +74,7 @@
           clearable
           color="primary"
           class="col-md-12 col-sm-12 col-xs-12"
-          :rules="[val => (val && val.length > 0) || 'Campo obrigatório']"
+          :rules="[val => (val && val.length > 0) || 'Escolaridade é obrigatório']"
           v-model="escolaridade"
           :options="options"
           label="Escolaridade"

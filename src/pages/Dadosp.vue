@@ -61,7 +61,7 @@
             label="Escolaridade"
             class="btndrop"
             :rules="[
-              val => (val && val.length > 0) || 'Selecione o nivel escolar'
+              val => (val && val.length > 0) || 'Selecione o nível escolar'
             ]"
           >
             <template v-slot:prepend>
@@ -78,7 +78,7 @@
             mask="(##) #####-####"
             label="Telefone"
             :rules="[
-              val => (val && val.length > 0) || 'Telefone obrigatório',
+              val => (val && val.length > 0) || 'Telefone é obrigatório',
               val => val.length === 15 || 'Coloque um telefone real'
             ]"
           >
@@ -115,9 +115,9 @@ export default {
       options: [
       "Ensino fundamental completo",
       "Ensino fundamental incompleto",
-      "Ensino medio completo",
-      "Ensino medio incompleto",
-      "Ensino medio completo",
+      "Ensino médio completo",
+      "Ensino médio incompleto",
+      "Ensino médio completo",
       "Ensino superior completo",
       "Ensino superior incompleto"
     ],

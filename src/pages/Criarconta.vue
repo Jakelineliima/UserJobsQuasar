@@ -12,7 +12,7 @@
             label="Digite seu email*"
             lazy-rules
             :rules="[
-              (val) => (val && val.length > 0) || 'Digite um email valido!',
+              (val) => (val && val.length > 0) || 'Digite um email válido!',
             ]"
           />
 

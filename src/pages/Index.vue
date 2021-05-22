@@ -4,14 +4,15 @@
       <div class="card">
         <div>
           <p class="text-h5 titulo title">
-            Conheça sua nova vida profissional.<br> Na UseJobs temos vagas para todas as áreas.
+            Conheça sua nova vida profissional.<br />
+            Na Use Jobs temos vagas para todas as áreas.
           </p>
         </div>
         <div>
           <img
             class="img"
             src="../assets/imagem/Group 148.png"
-            alt="mulher na cadeira de rodas e um homen em pe"
+            alt="mulher na cadeira de rodas e um homem em pé"
           />
         </div>
       </div>
@@ -21,16 +22,16 @@
             Fique por dentro das novidades do seu setor
           </p>
           <p class="subtitilu title3">
-            Temos vagas com experiência, até pra você que está iniciando no
-            mercado de trabalho, UseJobs oferece espaço para todos em
-            todas as áreas.
+            Oferecemos vagas com experiência e sem experiência, para você que
+            está iniciando no mercado de trabalho, Use Jobs oferece espaço para
+            todos em todas as áreas.
           </p>
         </div>
         <div>
           <img
             class="img"
             src="../assets/imagem/Group 146.png"
-            alt="mulher na cadeira de rodas e um homen em pe"
+            alt="mulher na cadeira de rodas e um homem em pé"
           />
         </div>
       </div>
@@ -76,24 +77,30 @@ export default {
 .tese {
   padding: 10px;
 }
-.container{
-   width:1126px  !important;
+
+.container {
+  width: 1126px !important;
 }
+
 @media screen and (max-width: 800px) {
-  .titulo{
+  .titulo {
     margin: auto;
   }
-  .card{
+
+  .card {
     flex-direction: column;
     align-items: center;
   }
-  .title{
+
+  .title {
     margin: -90px 12px 0 12px;
   }
-  .title2{
+
+  .title2 {
     margin: -36px 12px 0 12px;
   }
-  .title3{
+
+  .title3 {
     margin: 29px 12px auto;
   }
 }

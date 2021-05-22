@@ -1,7 +1,7 @@
 <template>
   <div class="sobre">
     <h6 class="text-primary" style="margin-bottom: 1em">
-      UseJobs é uma plataforma de vagas de empregos para mão de obra
+      Use Jobs é uma plataforma de vagas de empregos para mão de obra
       operacional 100% gratuita
     </h6>
     <p class="text-subtitle1">
@@ -9,7 +9,7 @@
       as vagas mais relevantes do mercado, contribuindo para uma maior
       satisfação profissional
     </p>
-    <img src="../assets/imagem/sobre.png" alt="Imagem de três conversando" />
+    <img  src="../assets/imagem/sobre.png" alt="Imagem de três pessoas conversando" />
 
     <h6 class="text-primary" style="margin-bottom: 1em">
       OPORTUNIDADES DO MERCADO PARA MÃO DE OBRA OPERACIONAL
@@ -27,7 +27,7 @@
       </li>
       <li>
         A candidatura e acompanhamento das vagas podem ser feitas através do
-        nosso site e também pelo nosso aplicativo UseJobs.
+        nosso site e também pelo nosso aplicativo Use Jobs.
       </li>
     </ul>
 
@@ -62,10 +62,12 @@ p,li,h6{
 hr{
   margin: 25px auto;
 }
+
 @media screen and (max-width:800px) {
   .sobre{
     padding: 0;
-    margin: 0 49px 0 49px;
+    margin: 0 11px 0 11px;
   }
+ 
 }
 </style>

@@ -8,14 +8,14 @@
         <p class="text-weight-light">
           Avenida Neiriere N°445 Centro - ITÁPOLIS-SP
         </p>
-        <p class="text-subtitle2">Numero de contato: 016 996018696</p>
+        <p class="text-subtitle2">Número de contato: 016 996018696</p>
       </div>
       <div class="">
         <q-text class="text-h6 text-primary">Sobre o candidato</q-text>
         <div class="row justify-around cardsobre">
           <q-text class="text-subtitle2">Tem experiência - Sim</q-text>
           <q-text class="text-subtitle2 txt"
-            >Nivel de escolaridade - Ensino Superior completo</q-text
+            >Nível de escolaridade - Ensino Superior completo</q-text
           >
         </div>
         <!----
@@ -54,16 +54,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      lorem:
-        "O Candidato pode estar cursando faculdade, porem é nescessario ter conhecimento em administração"
-    };
-  }
-};
-</script>
+
 <style>
 .cardsobre{
   margin: 33px auto;

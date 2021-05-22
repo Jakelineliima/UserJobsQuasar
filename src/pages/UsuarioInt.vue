@@ -60,7 +60,7 @@
 
     <q-separator class="hr" />
 
-    <h6 class="titulo">Vagas que você envio curriculo</h6>
+    <h6 class="titulo">Vagas que você enviou currículo</h6>
     <div class="cards">
       <div v-for="cadastrarvaga in Cadastrovaga" :key="cadastrarvaga.id">
         <q-card class="my-card bg-grey-4 text-dark cardcurriculo">

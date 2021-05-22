@@ -3,8 +3,9 @@
     <div class="card">
       <div class="card1">
         <h6 class="">
-          Procure a melhor vaga pra você, tendo experiência ou não, aqui é sua
-          change de conseguir aquele emprego dos sonhos.
+          Encontre a melhor vaga pra você, com experiência ou não, aqui é sua
+          chance de conseguir aquele emprego dos sonhos.
+
         </h6>
         <img class="menina" src="../assets/imagem/vagas.png" />
       </div>
