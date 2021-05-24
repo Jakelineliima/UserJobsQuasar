@@ -60,7 +60,7 @@
 
     <q-separator class="hr" />
 
-    <h6 class="titulo">Vagas que você enviou currículo</h6>
+    <h6 class="tituloo">Vagas que você enviou currículo</h6>
     <div class="cards">
       <div v-for="cadastrarvaga in Cadastrovaga" :key="cadastrarvaga.id">
         <q-card class="my-card bg-grey-4 text-dark cardcurriculo">
@@ -109,7 +109,7 @@
 .hr {
   width: 35%;
 }
-.titulo {
+.tituloo {
   color: rgb(25, 118, 210);
   font-weight: bold;
   text-align: center;

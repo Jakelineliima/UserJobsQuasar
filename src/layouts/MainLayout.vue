@@ -72,8 +72,7 @@
               class="text-primary links q-mx-sm"
               to="/cadastrarvaga"
               label="CADASTRE SUA VAGA"
-            />
-            <q-btn
+            /> <q-btn
               unelevated
               rounded
               color="primary"
@@ -143,7 +142,7 @@ export default {
   background-color: #f8f9fa;
 }
 
-/*.logoimg {
+.logoimg {
   margin-left: 85px;
 }
 
@@ -154,9 +153,7 @@ export default {
 .menuburgue {
   display: none;
 }
-..menuburgue {
-  display: none;
-}
+
 .direitos {
   text-align: center;
 }
@@ -166,5 +163,11 @@ export default {
 }
 .menu{
   margin: 13px auto;
+}
+@media screen and (max-width:470px) {
+  .menuburgue {
+    display:block
+  }
+ 
 }
 </style>

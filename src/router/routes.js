@@ -6,7 +6,7 @@ const routes = [
     children: [
       { path: "", component: () => import("pages/Index.vue") },
       { path: "criarconta", component: () => import("pages/Criarconta.vue") },
-      { path: "interessado", component: () => import("pages/Interessado.vue") },
+     
       // { path: 'login', component: () => import('pages/Login.vue')},
       //{ path: 'vagas', component: () => import('pages/Vagas.vue')},
       { path: "vervaga", component: () => import("pages/Vervaga.vue") },
@@ -18,7 +18,7 @@ const routes = [
         component: () => import("pages/Vizualizarcurriculo.vue")
       },
       { path: "dadosp", component: () => import("pages/Dadosp.vue") },
-      { path: "usuariolog", component: () => import("pages/Usuario.vue") }
+     
     ]
   },
   {
@@ -47,13 +47,29 @@ const routes = [
   {
     path: "/usuarioint",
     component: () => import("layouts/MainLayout.vue"),
-    children: [{ path: "", component: () => import("pages/UsuarioInt.vue") }]
+    children: [{ path: "", component: () => import("pages/UsuarioInt.vue") }],
+    meta: { autenticar: true }
+  },
+  {
+    path: "/usuariolog",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/Usuario.vue") }],
+    meta: { autenticar: true }
   },
   {
     path: "/userdados",
     component: () => import("layouts/MainLayout.vue"),
     children: [
       { path: "", component: () => import("components/Userdados.vue") }
+
+    ]
+  },
+  {
+    path: "/interessado",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [
+      { path: "", component: () => import("pages/Interessado.vue") }
+
     ]
   },
 

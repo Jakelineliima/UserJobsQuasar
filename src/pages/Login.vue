@@ -55,7 +55,7 @@ export default {
   methods: {
     ...mapActions('mainstore', ['login','logout','carregarToken']),    
     async efetuarLogin () {
-      await this.login({ username: this.usuario, password: this.senha })
+      await this.login({ username: this.usuario, password: this.senha})
       await this.carregarToken()
       if (this.token) {
         this.$router.push('/usuarioint')

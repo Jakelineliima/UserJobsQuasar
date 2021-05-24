@@ -1,16 +1,15 @@
 <template>
   <q-page>
-    <q-card class="my-card">
+  <!--- <q-card
+      class="my-card"
+     v-for="cadastrarvaga in Cadastrovaga" :key="cadastrarvaga.id"
+    >
       <q-card-section>
         <div class="text-h6 text-primary" style="margin-bottom: 1em">
-          Ester Nundes Lima
+          {{ cadastrarvaga.nome }}
         </div>
-        <p>
-          <strong>Endereço : </strong> Rua José Tomás N° 120 Jardim Paulista
-          Itápolis
-        </p>
-        <p><strong>Escolaridade : </strong> Ensino Superior incompleto</p>
-        <p><strong>Telefone : </strong> 16 996789685</p>
+        <p><strong>Endereço : </strong>{{ cadastrarvaga.endereco }}</p>
+        <p><strong>Telefone : </strong> {{ cadastrarvaga.telefone }}</p>
       </q-card-section>
 
       <div class="q-pa-md">
@@ -26,28 +25,40 @@
                 <q-avatar icon="edit" color="primary" text-color="white" />
               </q-item-section>
               <q-item-section>
-                <router-link to="/dadosp" class="edit"
-                  >Editar dados</router-link
-                >
+                <q-btn
+                  unelevated
+                  rounded
+                  color="primary"
+                  class="btncriar"
+                  label="Editar"
+                  @click="alterar(curriculo.id)"
+                />
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-close-popup >
+            <q-item clickable v-close-popup>
               <q-item-section avatar>
                 <q-avatar icon="delete" color="red" text-color="white" />
               </q-item-section>
               <q-item-section>
-                <q-item-label>Excluir conta</q-item-label>
+                <q-btn
+                  unelevated
+                  rounded
+                  color="red"
+                  class="btncriar"
+                  label="Excluir"
+                  @click="remover(curriculo.id)"
+                />
               </q-item-section>
             </q-item>
           </q-list>
         </q-btn-dropdown>
       </div>
-    </q-card>
+    </q-card>-->
 
     <q-separator class="hr" />
 
-    <h6 class="titulo">Suas vagas</h6>
+    <h6 class="titulo">Suas vagas disponíveis </h6>
     <div class="cards">
       <div v-for="cadastrarvaga in Cadastrovaga" :key="cadastrarvaga.id">
         <q-card class="my-card bg-grey-4  text-dark cardcurriculo">

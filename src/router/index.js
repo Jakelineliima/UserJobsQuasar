@@ -29,6 +29,7 @@ export default function ({ store /*, ssrContext */}) {
       return null
     }
   }
+  
 
   const Router = new VueRouter({
     scrollBehavior: () => ({ x: 0, y: 0 }),

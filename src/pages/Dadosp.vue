@@ -24,20 +24,7 @@
               <q-icon name="person" />
             </template>
           </q-input>
-          <q-input
-            outlined
-            vclearable
-            rounded-radios
-            class="bg-white"
-          
-            type="email"
-            label="E-mail"
-            :rules="[val => (val && val.length > 0) || 'Digite seu email']"
-          >
-            <template v-slot:prepend>
-              <q-icon name="email" />
-            </template>
-          </q-input>
+         
           <q-input
             outlined
             vclearable

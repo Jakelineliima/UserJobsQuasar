@@ -9,6 +9,7 @@
             class="input"
             filled
             v-model="username"
+            type="text"
             label="Digite seu email*"
             lazy-rules
             :rules="[
@@ -28,13 +29,6 @@
             ]"
           />
         </div>
-<!---
-        <div class="q-gutter-sm">
-          <p class="text-subtitle2">Qual seu interesse ?</p>
-          <q-checkbox v-model="empresa" label="Empresa" />
-          <q-checkbox v-model="candidato" label="Candidato" />
-        </div>
--->
         <div>
           <q-btn
             unelevated
@@ -62,6 +56,7 @@ export default {
       username: '',
       password: '',
       
+      
     }
   },
   methods: {
@@ -70,10 +65,14 @@ export default {
        await this.adicionarConta({
         username: this.username,
         password: this.password,
+        roles: 'ADMIN',
+        ativo: true
+
         
       });
     }
   },
+  
 
 }
 </script>
