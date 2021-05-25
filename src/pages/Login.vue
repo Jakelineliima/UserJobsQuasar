@@ -59,6 +59,7 @@ export default {
       await this.carregarToken()
       if (this.token) {
         this.$router.push('/usuarioint')
+        this.$router.push('/usuariolog')
       }
     },
     efetuarLogout () {
