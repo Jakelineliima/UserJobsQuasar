@@ -109,10 +109,27 @@ const actions = {
       });
     }
   },
+  async loginadm({ commit }, usuario) {
+    let response = await api.post("/loginadm", usuario, {
+      headers: { "Content-Type": "application/json" }
+    });
+    if (response) {
+      await LocalStorage.set("token", response.data.token);
+      await commit("SET_TOKEN", response.data.token);
+      Notify.create({
+        color: "positive",
+        message: "Login efetuado com sucesso"
+      });
+    }
+
+
+  },
   async logout({ commit }) {
     await LocalStorage.remove("token");
     await commit("SET_TOKEN", null);
   },
+
+  
   async carregarToken({ commit }) {
     let token = await LocalStorage.getItem("token");
     await commit("SET_TOKEN", token);
@@ -173,6 +190,9 @@ const actions = {
         position: "top",
         message: "Seu curriculo foi enviado com sucesso."
       });
+      if (this.token) {
+        this.$router.push('/usuarioint')
+      }
     });
   },
 
@@ -195,7 +215,7 @@ const actions = {
   },
   removerCurriculo({ commit }, CurriculoId) {
     api.delete('/usuarioint/' + CurriculoId)
-      .then((response) => {
+    .then((response) => {
       commit("REMOVER_CURRICULO", CurriculoId);
     });
   },

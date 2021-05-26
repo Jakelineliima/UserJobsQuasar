@@ -9,7 +9,7 @@
       </p>
       <q-img src="../assets/imagem/imagecadastrar.png" class="img" />
     </div>
-    <div class="inputs">
+    <div class="inputs" >
       <h6 class="text-primary" style="margin-bottom: 1em">
         Dados da vaga
       </h6>
@@ -146,7 +146,7 @@
 }
 </style>
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -156,7 +156,6 @@ export default {
       cargo: '',
       escolaridade: '',
       experiencia: '',
-      resposta: true,
       options: [
         "Ensino fundamental completo",
         "Ensino fundamental incompleto",
@@ -178,9 +177,11 @@ export default {
         endereco: this.endereco,
         cargo: this.cargo,
         escolaridade: this.escolaridade,
-        experiencia: this.experiencia
+        experiencia: this.experiencia,
       });
     }
-  }
+  },
+  
+  
 };
 </script>

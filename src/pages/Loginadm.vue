@@ -3,7 +3,7 @@
     <div class="q-pa-md" style="width: 400px">
       <q-form class="q-gutter-md text-center">
         <h3 class="q-mb-xs text-primary">Entrar</h3>
-        <p class="q-mb-lg ">Mantenha-se por dentro do seu mundo profissional</p>
+        <p class="q-mb-lg ">Faça login e gerencie suas vagas</p>
         <q-input
           filled
           class="bg-white"
@@ -45,7 +45,7 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  name: 'Login',
+  name: 'Loginadm',
   data () {
     return {
       usuario: '',
@@ -58,7 +58,7 @@ export default {
       await this.login({ username: this.usuario, password: this.senha})
       await this.carregarToken()
       if (this.token) {
-        this.$router.push('/usuarioint')
+        this.$router.push('/usuariolog')
       }
     },
     efetuarLogout () {

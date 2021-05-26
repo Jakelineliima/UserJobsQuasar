@@ -1,8 +1,9 @@
 <template>
   <q-page>
-  <!--- <q-card
+   <!---- <q-card
       class="my-card"
-     v-for="cadastrarvaga in Cadastrovaga" :key="cadastrarvaga.id"
+      v-for="cadastrarvaga in Cadastrovaga"
+      :key="cadastrarvaga.id"
     >
       <q-card-section>
         <div class="text-h6 text-primary" style="margin-bottom: 1em">
@@ -21,35 +22,14 @@
         >
           <q-list>
             <q-item clickable v-close-popup>
-              <q-item-section avatar>
-                <q-avatar icon="edit" color="primary" text-color="white" />
-              </q-item-section>
-              <q-item-section>
-                <q-btn
-                  unelevated
-                  rounded
-                  color="primary"
-                  class="btncriar"
-                  label="Editar"
-                  @click="alterar(curriculo.id)"
-                />
-              </q-item-section>
-            </q-item>
-
-            <q-item clickable v-close-popup>
-              <q-item-section avatar>
-                <q-avatar icon="delete" color="red" text-color="white" />
-              </q-item-section>
-              <q-item-section>
-                <q-btn
-                  unelevated
-                  rounded
-                  color="red"
-                  class="btncriar"
-                  label="Excluir"
-                  @click="remover(curriculo.id)"
-                />
-              </q-item-section>
+              <q-btn
+                unelevated
+                rounded
+                color="primary"
+                class="btncriar"
+                label="Sair"
+                @click="efetuarLogout()"
+              />
             </q-item>
           </q-list>
         </q-btn-dropdown>
@@ -58,40 +38,47 @@
 
     <q-separator class="hr" />
 
-    <h6 class="titulo">Suas vagas disponíveis </h6>
+    <h6 class="titulo">Suas vagas disponíveis</h6>
     <div class="cards">
       <div v-for="cadastrarvaga in Cadastrovaga" :key="cadastrarvaga.id">
-        <q-card class="my-card bg-grey-4  text-dark cardcurriculo">
+        <q-card class="my-card bg-grey-4 text-dark cardcurriculo">
           <q-card-section>
-            <div class="text-h6" style="text-align:center;">{{ cadastrarvaga.nome }}</div>
-            <hr>
-             <div class="text-subtitle"><strong>Telefone:  </strong> {{ cadastrarvaga.telefone }}</div>
-            <div class="text-subtitle"><strong>Cargo:  </strong> {{ cadastrarvaga.cargo }}</div>
-            <div class="text-subtitle"><strong>Experiência:  </strong>{{ cadastrarvaga.experiencia }}</div>
-            <div class="text-subtitle"><strong>Escolaridade:  </strong> {{ cadastrarvaga.escolaridade }}</div>
-
+            <div class="text-h6" style="text-align: center">
+              {{ cadastrarvaga.nome }}
+            </div>
+            <hr />
+            <div class="text-subtitle">
+              <strong>Telefone: </strong> {{ cadastrarvaga.telefone }}
+            </div>
+            <div class="text-subtitle">
+              <strong>Cargo: </strong> {{ cadastrarvaga.cargo }}
+            </div>
+            <div class="text-subtitle">
+              <strong>Experiência: </strong>{{ cadastrarvaga.experiencia }}
+            </div>
+            <div class="text-subtitle">
+              <strong>Escolaridade: </strong> {{ cadastrarvaga.escolaridade }}
+            </div>
           </q-card-section>
           <q-card-actions>
             <q-separator />
-          <q-btn
-            unelevated
-            rounded
-            color="primary"
-            class="btncriar"
-            label="Editar"
-            @click="alterar(cadastrarvaga.id)"
-          />
-          <q-btn
-            unelevated
-            rounded
-            color="red"
-            class="btncriar"
-            label="Excluir"
-            @click="remover(cadastrarvaga.id)"
-  
-          />
-        </q-card-actions>
-        
+            <q-btn
+              unelevated
+              rounded
+              color="primary"
+              class="btncriar"
+              label="Editar"
+              @click="alterar(cadastrarvaga.id)"
+            />
+            <q-btn
+              unelevated
+              rounded
+              color="red"
+              class="btncriar"
+              label="Excluir"
+              @click="remover(cadastrarvaga.id)"
+            />
+          </q-card-actions>
         </q-card>
       </div>
     </div>
@@ -120,6 +107,7 @@
   color: rgb(25, 118, 210);
   font-weight: bold;
   text-align: center;
+  margin: 25px auto;
 }
 .btnconf {
   margin: -3px auto;
@@ -131,49 +119,62 @@
 .my-card {
   padding: 12px;
 }
-.btncriar{
+.btncriar {
   width: 50%;
   flex: 1;
 }
 </style>
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters } from "vuex";
 
 export default {
-  name: 'PageUsuariolog',
+  name: "PageUsuariolog",
 
   methods: {
-    ...mapActions('mainstore', ['obterCadastrovaga', 'selecionarVaga','removerVaga']),
-
-    alterar (CadastrovagaId){
-      this.selecionarVaga(CadastrovagaId)
-      this.$router.push('/vagaalteracao')
+    ...mapActions("mainstore", [
+      "obterCadastrovaga",
+      "selecionarVaga",
+      "removerVaga",
+      "logout",
+      "carregarToken",
+    ]),
+    efetuarLogout() {
+      this.logout();
     },
-    remover (CadastrovagaId) {
-      this.$q.dialog({
-        title: 'Confirma',
-        message: 'Tem certeza que deseja excluir o vaga?',
-        cancel: {
-          label: 'Cancelar'
-        },
-        ok: {
-          label: 'OK'
-        },
-        persistent: true
-      }).onOk(() => {
-        this.removerVaga(CadastrovagaId)
-        Notify.create({ color: 'positive', position: 'top', message: 'Produto Excluído!'})  
-      }).onCancel(() => {
-        
-      })
-    }
+    alterar(CadastrovagaId) {
+      this.selecionarVaga(CadastrovagaId);
+      this.$router.push("/vagaalteracao");
+    },
+    remover(CadastrovagaId) {
+      this.$q
+        .dialog({
+          title: "Confirma",
+          message: "Tem certeza que deseja excluir o vaga?",
+          cancel: {
+            label: "Cancelar",
+          },
+          ok: {
+            label: "OK",
+          },
+          persistent: true,
+        })
+        .onOk(() => {
+          this.removerVaga(CadastrovagaId);
+          Notify.create({
+            color: "positive",
+            position: "top",
+            message: "Produto Excluído!",
+          });
+        })
+        .onCancel(() => {});
+    },
   },
   computed: {
-    ...mapGetters('mainstore', ['Cadastrovaga'])
+    ...mapGetters("mainstore", ["Cadastrovaga"]),
   },
 
   created() {
     this.obterCadastrovaga();
-  }
+  },
 };
 </script>

@@ -42,7 +42,7 @@
           rounded-radios
           v-model="endereco"
           color="primary"
-          label="Endereco"
+          label="Endereço"
           class="col-md-12 col-sm-12 col-xs-12"
           :rules="[val => (val && val.length > 0) || 'Endereco é obrigatório']"
         >
@@ -146,7 +146,8 @@ export default {
         telefone: this.telefone,
         escolaridade: this.escolaridade,
         experiencia: this.experiencia
-      });
+      })
+      
     }
   }
 };

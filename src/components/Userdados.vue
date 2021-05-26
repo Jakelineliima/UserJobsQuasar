@@ -1,14 +1,16 @@
 <template>
   <q-page>
-    <q-card class="my-card" v-for="curriculo in Curriculocad" :key="curriculo.id">
+    <q-card
+      class="my-card"
+      v-for="curriculo in Curriculocad"
+      :key="curriculo.id"
+    >
       <q-card-section>
         <div class="text-h6 text-primary" style="margin-bottom: 1em">
-         {{ curriculo.nome }}
+          {{ curriculo.nome }}
         </div>
-        <p>
-          <strong>Endereçoo : </strong>{{ curriculo.endereço }}
-        </p>
-        <p><strong>Escolaridade : </strong> {{ curriculo.escolaridade}}</p>
+        <p><strong>Endereço : </strong>{{ curriculo.endereco }}</p>
+        <p><strong>Escolaridade : </strong> {{ curriculo.escolaridade }}</p>
         <p><strong>Telefone : </strong> {{ curriculo.telefone }}</p>
       </q-card-section>
 
@@ -21,22 +23,15 @@
         >
           <q-list>
             <q-item clickable v-close-popup>
-              <q-item-section avatar>
-                <q-avatar icon="edit" color="primary" text-color="white" />
-              </q-item-section>
               <q-item-section>
-                <router-link to="/dadosp" class="edit"
-                  >Editar dados</router-link
-                >
-              </q-item-section>
-            </q-item>
-
-            <q-item clickable v-close-popup >
-              <q-item-section avatar>
-                <q-avatar icon="delete" color="red" text-color="white" />
-              </q-item-section>
-              <q-item-section>
-                <btn  label="Excluir" @click="remover(curriculo.id)"/>
+                <q-btn
+                  unelevated
+                  rounded
+                  color="primary"
+                  class="btncriar"
+                  label="Editar"
+                  @click="alterar(curriculo.id)"
+                />
               </q-item-section>
             </q-item>
           </q-list>
@@ -50,40 +45,50 @@
 import { mapActions, mapGetters } from "vuex";
 
 export default {
-  name: 'Userdados',
+  name: "Userdados",
 
   methods: {
-    ...mapActions('mainstore', ['obterCurriculo', 'selecionarCurriculo', 'removerCurriculo']),
+    ...mapActions("mainstore", [
+      "obterCurriculo",
+      "selecionarCurriculo",
+      "removerCurriculo",
+    ]),
 
-    alterar (CurriculoId){
-      this.selecionarCurriculo(CurriculoId)
-      this.$router.push('/dadosp')
+    alterar(CurriculoId) {
+      this.selecionarCurriculo(CurriculoId);
+      this.$router.push("/dadosp");
     },
     remover (CurriculoId) {
       this.$q.dialog({
-        title: 'Confirma',
-        message: 'Tem certeza que deseja excluir o Curriculo?',
-        cancel: {
-          label: 'Cancelar'
-        },
-        ok: {
-          label: 'OK'
-        },
-        persistent: true
-      }).onOk(() => {
-        this.removerCurriculo(CurriculoId)
-        Notify.create({ color: 'positive', position: 'top', message: 'Curriculo Excluído!'})  
-      }).onCancel(() => {
-        
-      })
-    }
+          title: "Confirma",
+          message: "Tem certeza que deseja excluir o Curriculo ?",
+          cancel: {
+            label: "Cancelar",
+          },
+          ok: {
+            label: "OK",
+          },
+          persistent: true,
+        })
+        .onOk(() => {
+          this.removerCurriculo(CurriculoId);
+          Notify.create({
+            color: "positive",
+            position: "top",
+            message: "Curriculo Excluído!",
+          });
+        })
+        .onCancel(() => {
+
+        });
+    },
   },
   computed: {
-    ...mapGetters('mainstore', ['Curriculocad'])
+    ...mapGetters("mainstore", ["Curriculocad"]),
   },
 
   created() {
-    this.obterCurriculo()
-  }
+    this.obterCurriculo();
+  },
 };
 </script>

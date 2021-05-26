@@ -89,7 +89,7 @@
 .my-card {
   width: 100%;
   max-width: 250px;
-  margin: 9px 17px 46px auto;
+  
 }
 
 h6 {

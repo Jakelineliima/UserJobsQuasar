@@ -4,6 +4,7 @@ import { Notify } from 'quasar'
 
 import routes from './routes'
 
+
 Vue.use(VueRouter)
 
 /*

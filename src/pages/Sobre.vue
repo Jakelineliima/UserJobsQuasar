@@ -1,5 +1,5 @@
 <template>
-  <div class="sobre">
+  <div class="sobree">
     <h6 class="text-primary" style="margin-bottom: 1em">
       Use Jobs é uma plataforma de vagas de empregos para mão de obra
       operacional 100% gratuita
@@ -9,7 +9,10 @@
       as vagas mais relevantes do mercado, contribuindo para uma maior
       satisfação profissional
     </p>
-    <img  src="../assets/imagem/sobre.png" alt="Imagem de três pessoas conversando" />
+    <img
+      src="../assets/imagem/sobre.png"
+      alt="Imagem de três pessoas conversando"
+    />
 
     <h6 class="text-primary" style="margin-bottom: 1em">
       OPORTUNIDADES DO MERCADO PARA MÃO DE OBRA OPERACIONAL
@@ -31,43 +34,48 @@
       </li>
     </ul>
 
-    <hr>
+    <hr />
 
-    <q-text class="text-subtitle1"> Temos uma versão em inglês.
+    <q-text class="text-subtitle1">
+      Temos uma versão em inglês.
       <q-btn
-          unelevated
-          rounded
-          color="primary"
-          class="in"
-          label="Clique aqui !"
-          to="/sobrein"
-        />
+        unelevated
+        rounded
+        color="primary"
+        class="in"
+        label="Clique aqui !"
+        to="/sobrein"
+      />
     </q-text>
-        
   </div>
 </template>
 <style lang="stylus">
-.sobre{
-    text-align: center;
-    margin: 70px auto;
-    padding: 0 240px;
+.sobree {
+  text-align: center;
+  margin: 70px auto;
+  padding: 0 240px;
 }
-.in{
+
+.in {
   text-align: center;
   margin: 25px auto;
 }
-p,li,h6{
+
+p, li, h6 {
   text-align: justify;
 }
-hr{
+
+hr {
   margin: 25px auto;
 }
 
-@media screen and (max-width:800px) {
-  .sobre{
-    padding: 0;
-    margin: 0 11px 0 11px;
+@media screen and (max-width: 800px) {
+  .sobre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
   }
- 
 }
 </style>

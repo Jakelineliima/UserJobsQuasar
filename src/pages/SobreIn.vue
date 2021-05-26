@@ -1,5 +1,5 @@
 <template>
-  <div class="sobre">
+  <div class="sobree">
     <h6 class="text-primary" style="margin-bottom: 1em">
       UseJobs is a job vacancy platform for 100% free operational labor.
     </h6>
@@ -21,7 +21,8 @@
       </li>
       <li>
         We prioritize vacancies close to the candidate's home, ensuring greater
-        quality of life and other benefits to make the routine more and more practical and optimized.
+        quality of life and other benefits to make the routine more and more
+        practical and optimized.
       </li>
       <li>
         Application and monitoring of vacancies can be made through our website
@@ -29,35 +30,40 @@
       </li>
     </ul>
 
-<hr>
+    <hr />
 
-      <q-btn
-        unelevated
-        rounded
-        color="primary"
-        class="in"
-        label="Back - Voltar"
-        to="/sobre"
-      />
-
+    <q-btn
+      unelevated
+      rounded
+      color="primary"
+      class="in"
+      label="Back - Voltar"
+      to="/sobre"
+    />
   </div>
 </template>
 <style lang="stylus">
-.sobre{
-    text-align: center;
-    margin: 70px auto;
-    padding: 0 240px;
+.sobree {
+  text-align: center;
+  margin: 70px auto;
+  padding: 0 240px;
 }
-p,li,h6{
+
+p, li, h6 {
   text-align: justify;
 }
-.in{
+
+.in {
   text-align: center;
 }
-@media screen and (max-width:800px) {
-  .sobre{
-    padding: 0;
-    margin: 0 49px 0 49px;
+
+@media screen and (max-width: 800px) {
+  .sobre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
   }
 }
 </style>

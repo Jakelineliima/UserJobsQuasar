@@ -10,10 +10,10 @@
             filled
             v-model="username"
             type="text"
-            label="Digite seu email*"
+            label="Digite nome de usuário*"
             lazy-rules
             :rules="[
-              (val) => (val && val.length > 0) || 'Digite um email válido!',
+              (val) => (val && val.length > 0) || 'Digite um nome válido!',
             ]"
           />
 

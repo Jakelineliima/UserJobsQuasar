@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh LpR fFf">
-    <q-header class="text-dark bg-white fixed " height-hint="98">
+    <q-header class="text-dark bg-white fixed" height-hint="98">
       <q-toolbar class="q-mt-mdquas menu">
         <q-toolbar-title>
           <a href="">
@@ -8,8 +8,39 @@
           </a>
         </q-toolbar-title>
 
-        <q-btn-dropdown icon="menu" class="menuburgue">
-          <q-list>
+        <q-btn-dropdown icon="menu" color="primary" class="menuburgue">
+
+              <q-list>
+                <q-item clickable v-close-popup>
+                  <q-item-section>
+                    <router-link class="text-primary links q-mx-sm btn" to="/vagas"
+                    >Ver vagas</router-link>
+                  </q-item-section>
+                </q-item>
+
+                <q-item clickable v-close-popup>
+                  <q-item-section>
+                    <router-link class="text-primary links q-mx-sm btn" to="/cadastrarvaga"
+                    >Cadastrar vaga</router-link>
+                  </q-item-section>
+                </q-item>   
+                <hr class="q-py"/>
+                <q-item clickable v-close-popup>
+                  <q-item-section>
+                    <router-link class="text-primary links q-mx-sm btn" to="/usuarioint"
+                    >Usuário interessado</router-link>
+                  </q-item-section>
+                </q-item>
+
+                <q-item clickable v-close-popup>
+                  <q-item-section>
+                    <router-link class="text-primary links q-mx-sm btn" to="/usuariolog"
+                    >Empregador</router-link>
+                  </q-item-section>
+                </q-item>    
+              </q-list>
+            </q-btn-dropdown>     
+       <!---   <q-list>
             <q-item clickable v-close-popup>
               <q-item-section>
                 <q-item-label>
@@ -23,7 +54,7 @@
             <q-item clickable v-close-popup>
               <q-item-section>
                 <q-item-label>
-                  <router-link class="btn " to="/cadastrarvaga"
+                  <router-link class="btn" to="/cadastrarvaga"
                     >Cadastrar sua vaga</router-link
                   ></q-item-label
                 >
@@ -33,14 +64,14 @@
             <q-item clickable v-close-popup>
               <q-item-section>
                 <q-item-label
-                  ><router-link class="btn " to="/login"
+                  ><router-link class="btn" to="/login"
                     >Login</router-link
                   ></q-item-label
                 >
               </q-item-section>
             </q-item>
           </q-list>
-        </q-btn-dropdown>
+        </q-btn-dropdown>--->
         <!-----
         <q-btn  icon="menu" class="menuburgue">
         <q-menu>
@@ -72,13 +103,30 @@
               class="text-primary links q-mx-sm"
               to="/cadastrarvaga"
               label="CADASTRE SUA VAGA"
-            /> <q-btn
-              unelevated
-              rounded
-              color="primary"
-              label="FAZER LOGIN"
-              to="/login"
             />
+            <q-btn-dropdown color="primary" label="Login" rounded>
+              <q-list>
+                <q-item clickable v-close-popup>
+                  <q-item-section>
+                    <q-route-tab
+                      class="text-primary links q-mx-sm"
+                      to="/login"
+                      label="Usuário interessado"
+                    />
+                  </q-item-section>
+                </q-item>
+
+                <q-item clickable v-close-popup>
+                  <q-item-section>
+                    <q-route-tab
+                      class="text-primary links q-mx-sm"
+                      to="/loginadm"
+                      label="Empregador"
+                    />
+                  </q-item-section>
+                </q-item>       
+              </q-list>
+            </q-btn-dropdown>
           </q-tabs>
         </div>
       </q-toolbar>
@@ -109,7 +157,7 @@
       </div>
       <div class="bg-white" style="padding: 15px">
         <p
-          class="text-dark text-center align-center text-weight-bold text-blue-grey-7 "
+          class="text-dark text-center align-center text-weight-bold text-blue-grey-7"
           style="margin: 0"
         >
           2021 / Todos os direitos reservados.
@@ -119,10 +167,20 @@
   </q-layout>
 </template>
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
-  data() {
-    return {};
-  }
+  name: "PageUsuariolog",
+
+  methods: {
+    ...mapActions("mainstore", ["logout", "carregarToken"]),
+    efetuarLogout() {
+      this.logout();
+    },
+  },
+  computed: {
+    ...mapGetters("mainstore", ["token"]),
+  },
 };
 </script>
 
@@ -131,13 +189,15 @@ export default {
   width: 120px;
 }
 
-.links:hover{
-  border-radius 50px;
+.links:hover {
+  border-radius: 50px;
 }
-.link{
+
+.link {
   text-decoration: none;
-  color: #fff
+  color: #fff;
 }
+
 .paginas {
   background-color: #f8f9fa;
 }
@@ -149,7 +209,14 @@ export default {
 .btns {
   margin-left: 10px;
 }
-*/
+hr{
+  color: #536dfe;
+}
+
+@css {
+*
+}
+
 .menuburgue {
   display: none;
 }
@@ -161,13 +228,14 @@ export default {
 .container {
   width: 1126px !important;
 }
-.menu{
+
+.menu {
   margin: 13px auto;
 }
-@media screen and (max-width:470px) {
+
+@media screen and (max-width: 470px) {
   .menuburgue {
-    display:block
+    display: block;
   }
- 
 }
 </style>

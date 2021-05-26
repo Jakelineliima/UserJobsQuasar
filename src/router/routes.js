@@ -1,4 +1,3 @@
-
 const routes = [
   {
     path: "/",
@@ -6,19 +5,14 @@ const routes = [
     children: [
       { path: "", component: () => import("pages/Index.vue") },
       { path: "criarconta", component: () => import("pages/Criarconta.vue") },
-     
-      // { path: 'login', component: () => import('pages/Login.vue')},
-      //{ path: 'vagas', component: () => import('pages/Vagas.vue')},
       { path: "vervaga", component: () => import("pages/Vervaga.vue") },
-      // { path: 'cadastrarvaga', component: () => import('pages/Cadastrarvaga') },
       { path: "sobre", component: () => import("pages/Sobre.vue") },
       { path: "sobrein", component: () => import("pages/SobreIn.vue") },
       {
         path: "vizualizarcurriculo",
         component: () => import("pages/Vizualizarcurriculo.vue")
       },
-      { path: "dadosp", component: () => import("pages/Dadosp.vue") },
-     
+      { path: "dadosp", component: () => import("pages/Dadosp.vue") }
     ]
   },
   {
@@ -35,6 +29,11 @@ const routes = [
     children: [{ path: "", component: () => import("pages/Login.vue") }]
   },
   {
+    path: "/loginadm",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/Loginadm.vue") }]
+  },
+  {
     path: "/vagas",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/Vagas.vue") }]
@@ -42,7 +41,8 @@ const routes = [
   {
     path: "/vagaalteracao",
     component: () => import("layouts/MainLayout.vue"),
-    children: [{ path: "", component: () => import("pages/VagaAlteracao.vue") }]
+    children: [{ path: "", component: () => import("pages/VagaAlteracao.vue") }],
+    meta: { autenticar: true }
   },
   {
     path: "/usuarioint",
@@ -61,16 +61,14 @@ const routes = [
     component: () => import("layouts/MainLayout.vue"),
     children: [
       { path: "", component: () => import("components/Userdados.vue") }
-
-    ]
+    ],
+    meta: { autenticar: true }
   },
   {
     path: "/interessado",
     component: () => import("layouts/MainLayout.vue"),
-    children: [
-      { path: "", component: () => import("pages/Interessado.vue") }
-
-    ]
+    children: [{ path: "", component: () => import("pages/Interessado.vue") }],
+    meta: { autenticar: true }
   },
 
   // Always leave this as last one,
@@ -81,4 +79,4 @@ const routes = [
   }
 ];
 
-export default routes
+export default routes;
