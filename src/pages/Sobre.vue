@@ -1,5 +1,5 @@
 <template>
-  <div class="sobree">
+  <div class="sobreee">
     <h6 class="text-primary" style="margin-bottom: 1em">
       Use Jobs é uma plataforma de vagas de empregos para mão de obra
       operacional 100% gratuita
@@ -50,10 +50,10 @@
   </div>
 </template>
 <style lang="stylus">
-.sobree {
+.sobreee {
   text-align: center;
   margin: 70px auto;
-  padding: 0 240px;
+  padding: 0 12px;
 }
 
 .in {

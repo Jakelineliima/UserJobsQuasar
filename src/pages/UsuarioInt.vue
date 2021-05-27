@@ -1,7 +1,6 @@
 <template>
   <q-page>
    <Userdados/>
-    <q-separator class="hr" />
     <h6 class="tituloo">Vagas que você enviou currículo</h6>
     <div class="cards">
       <div v-for="cadastrarvaga in Cadastrovaga" :key="cadastrarvaga.id">

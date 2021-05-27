@@ -8,6 +8,7 @@ const routes = [
       { path: "vervaga", component: () => import("pages/Vervaga.vue") },
       { path: "sobre", component: () => import("pages/Sobre.vue") },
       { path: "sobrein", component: () => import("pages/SobreIn.vue") },
+      { path: "/vagas", component: () => import("pages/Vagas.vue")},
       {
         path: "vizualizarcurriculo",
         component: () => import("pages/Vizualizarcurriculo.vue")
@@ -33,11 +34,7 @@ const routes = [
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/Loginadm.vue") }]
   },
-  {
-    path: "/vagas",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [{ path: "", component: () => import("pages/Vagas.vue") }]
-  },
+ 
   {
     path: "/vagaalteracao",
     component: () => import("layouts/MainLayout.vue"),

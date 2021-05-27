@@ -21,11 +21,11 @@
         <q-card-section>
           <div class="row items-center no-wrap">
             <div class="col">
-              <div class="text-subtitle2 titulo">
+              <div class="text-subtitle2 tituloo">
                 {{ cadastrarvaga.nome }}
               </div>
-              <div class="text-subtitle2">{{ cadastrarvaga.cargo }}</div>
-              <div>{{ cadastrarvaga.endereco }}</div>
+              <div> <strong>Cargo:  </strong>{{ cadastrarvaga.cargo }}</div>
+              <div><strong>Endereço:  </strong>{{ cadastrarvaga.endereco }}</div>
             </div>
           </div>
         </q-card-section>
@@ -76,7 +76,7 @@
   margin: 35px 35px;
 }
 
-.titulo {
+.tituloo {
   color: rgb(25, 118, 210);
   font-weight: bold;
 }
@@ -89,6 +89,7 @@
 .my-card {
   width: 100%;
   max-width: 250px;
+  margin: 12px auto;
   
 }
 

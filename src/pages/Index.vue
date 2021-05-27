@@ -22,9 +22,8 @@
             Fique por dentro das novidades do seu setor
           </p>
           <p class="subtitilu title3">
-            Oferecemos vagas com experiência e sem experiência, para você que
-            está iniciando no mercado de trabalho, Use Jobs oferece espaço para
-            todos em todas as áreas.
+            Oferecemos vagas para você que tem experiência profissional ou que
+            está ingressando no mercado de trabalho.
           </p>
         </div>
         <div>

@@ -28,7 +28,7 @@
                 <q-item clickable v-close-popup>
                   <q-item-section>
                     <router-link class="text-primary links q-mx-sm btn" to="/usuarioint"
-                    >Usuário interessado</router-link>
+                    >Candidato</router-link>
                   </q-item-section>
                 </q-item>
 
@@ -111,7 +111,7 @@
                     <q-route-tab
                       class="text-primary links q-mx-sm"
                       to="/login"
-                      label="Usuário interessado"
+                      label="Candidato"
                     />
                   </q-item-section>
                 </q-item>
@@ -174,7 +174,7 @@ export default {
 
   methods: {
     ...mapActions("mainstore", ["logout", "carregarToken"]),
-    efetuarLogout() {
+     efetuarLogout() {
       this.logout();
     },
   },

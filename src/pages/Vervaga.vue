@@ -54,6 +54,10 @@
 .cont{
   margin: 20px 90px;
 }
+
+p{
+  margin: 0;
+}
 @media screen and (max-width: 800px) {
   .cont{
     margin: 0;

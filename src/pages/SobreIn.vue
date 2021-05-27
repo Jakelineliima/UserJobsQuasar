@@ -46,7 +46,7 @@
 .sobree {
   text-align: center;
   margin: 70px auto;
-  padding: 0 240px;
+  padding: 0 12px;
 }
 
 p, li, h6 {
